@@ -3,7 +3,7 @@ class CreateInvitations < ActiveRecord::Migration[7.1]
     create_table :invitations do |t|
       t.references :user, null: false, foreign_key: true
       t.references :journey, null: false, foreign_key: true
-      t.boolean :accepted
+      t.boolean :accepted, default: false
 
       t.timestamps
     end

@@ -5,7 +5,7 @@ class CreateJourneys < ActiveRecord::Migration[7.1]
       t.string :location
       t.date :start_date
       t.date :end_date
-      t.boolean :completed
+      t.boolean :completed, default: false
       t.references :user, null: false, foreign_key: true
 
       t.timestamps
