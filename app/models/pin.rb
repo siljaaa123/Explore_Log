@@ -1,4 +1,4 @@
-class Page < ApplicationRecord
+class Pin < ApplicationRecord
   belongs_to :journey
   has_many :elements
   has_one :template
