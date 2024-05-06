@@ -2,5 +2,5 @@ class Invitation < ApplicationRecord
   belongs_to :user
   belongs_to :journey
 
-  validates :accepted, presence: true
+  # validates :accepted, presence: true
 end
