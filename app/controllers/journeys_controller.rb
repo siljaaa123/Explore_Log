@@ -4,6 +4,9 @@ class JourneysController < ApplicationController
 
   def index
     @journeys = Journey.order(start_date: :DESC)
+    if params[:query].present?
+      @journeys = @journeys.where("title ILIKE ?", "%#{params[:query]}%")
+    end
   end
 
   def show
