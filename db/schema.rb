@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_06_133218) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_07_090136) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -31,7 +31,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_06_133218) do
   create_table "invitations", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "journey_id", null: false
-    t.boolean "accepted"
+    t.boolean "accepted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["journey_id"], name: "index_invitations_on_journey_id"
@@ -43,10 +43,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_06_133218) do
     t.string "location"
     t.date "start_date"
     t.date "end_date"
-    t.boolean "completed"
+    t.boolean "completed", default: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "description"
     t.index ["user_id"], name: "index_journeys_on_user_id"
   end
 
