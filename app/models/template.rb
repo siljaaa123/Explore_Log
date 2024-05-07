@@ -1,6 +1,6 @@
 class Template < ApplicationRecord
-  belongs_to :pin
-  has_one :pin
+  has_many :pin_templates
+  has_many :pins, through: :pin_templates
 
   validates :name, presence: true
 end

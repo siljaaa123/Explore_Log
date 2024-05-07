@@ -4,11 +4,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
 
 // Phone dimes=nsions width: 375px, height:
 @media (max-width: 1800px) {
   .container {
     width: 320px;
   }
-
 }
