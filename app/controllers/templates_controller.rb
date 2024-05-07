@@ -1,22 +1,9 @@
 class TemplatesController < ApplicationController
   def index
+    @templates = Template.all
   end
 
   def show
-  end
-
-  def new
-  end
-
-  def create
-  end
-
-  def update
-  end
-
-  def edit
-  end
-
-  def destroy
+    @template = Template.find(params[:id])
   end
 end
