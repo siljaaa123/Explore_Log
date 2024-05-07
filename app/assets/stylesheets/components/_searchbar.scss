@@ -1,23 +1,52 @@
+
+
 .search-home {
   display: flex;
-  border: none;
-  border-radius: 8px;
-  border-color: #5C5C5C;
+  justify-content: center;
+  align-items: center;
 
 }
+.search-map {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-wrapper {
+  position: relative;
+  width:90%;
+  }
+
 .search-input {
+  top: 0;
+  right: 0;
+  position: absolute;
   color: lightgray;
   font-style: italic;
-  border: none;
-  border-radius: 8px;
-  border-color: #5C5C5C;
+  border-radius: 25px;
+  border: 1px solid lightgray;
 }
 
 .search-button {
-
+  top: 0;
+  right: 0;
+  height: 100%;
+  padding: 0 10px;
+  background: none;
+  border: none;
+  position: absolute;
 
 }
-
-.search-map {
-
+.form-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: lightgray;
+  font-style: italic;
+  border-radius: 25px;
+  border: 1px solid lightgray;
+  background-color: white;
+}
+#query {
+  min-width: 300px;
 }

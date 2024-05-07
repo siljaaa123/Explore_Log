@@ -10,7 +10,7 @@ justify-content: center;
 align-items: center;
 }
 
-.card img {
+.image {
   width: 100%;
   height: auto;
   object-fit: cover;
@@ -34,4 +34,19 @@ align-items: center;
 
 .card-content h2 {
   font-weight: bold;
+  margin-left: 3px;
+}
+
+
+.pin-text{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 0;
+
+  .pin {
+    width: 25px;
+    height:25px;
+    padding: 0;
+  }
 }
