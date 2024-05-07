@@ -1,5 +1,5 @@
 class JourneysController < ApplicationController
-  before_action :set_journey, only: %i[show edit update]
+  before_action :set_journey, only: %i[show edit update map]
   before_action :set_user, only: %i[new create edit update]
 
   def index
@@ -38,6 +38,19 @@ class JourneysController < ApplicationController
   def destroy
     @journey.destroy
     redirect_to journeys_path, status: :see_other
+  end
+
+  def map
+    @pins = Pin.all
+    @pin = Pin.find(params[:id])
+    @markers = @pins.geocoded.map do |pin|
+      {
+        lat: pin.latitude,
+        lng: pin.longitude,
+        info_window_html: render_to_string(partial: "pins/info_window", locals: { pin: pin }),
+        marker_html: render_to_string(partial: "pins/marker")
+      }
+    end
   end
 
   private

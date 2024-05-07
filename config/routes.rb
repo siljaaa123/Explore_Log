@@ -9,8 +9,14 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :journeys do
+  resources :journeys, only: %i[new create update edit] do
     resources :pins, only: %i[new create update edit]
+  end
+
+  resources :journeys, except: %i[new create update edit] do
+    member do
+      get :map
+    end
   end
 
   resources :pins, except: %i[new create update edit] do
