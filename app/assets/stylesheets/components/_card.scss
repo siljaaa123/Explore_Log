@@ -1,0 +1,37 @@
+.card {
+display: flex;
+flex-direction: column;
+width: 300px;
+height: 300px;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+overflow: hidden;
+justify-content: center;
+align-items: center;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.card-content {
+  color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  width: 100%;
+  padding: 20px;
+}
+
+.card-content p {
+  margin-bottom: 0;
+  font-size: small;
+}
+
+.card-content h2 {
+  font-weight: bold;
+}
