@@ -67,6 +67,6 @@ class JourneysController < ApplicationController
   end
 
   def journey_params
-    params.require(:journey).permit(:description, :user_id, :name, :location, :completed, :start_date, :end_date)
+    params.require(:journey).permit(:description, :user_id, :name, :location, :completed, :start_date, :end_date, :cover_photo)
   end
 end
