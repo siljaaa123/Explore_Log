@@ -50,3 +50,27 @@
 #query {
   min-width: 300px;
 }
+
+.mapboxgl-ctrl-geocoder--input{
+  top: 0;
+  right: 0;
+  position: absolute;
+  color: lightgray;
+  font-style: italic;
+  border-radius: 25px;
+  border: 1px solid lightgray;
+  height: 40px;
+}
+
+.mapboxgl-ctrl-geocoder {
+  display: flex;
+  align-items: center;
+}
+
+.mapboxgl-ctrl-geocoder--icon-search {
+  position: absolute;
+  top: 11px;
+  left: 262px !important;
+  width: 23px;
+  height: 23px;
+}

@@ -1,8 +1,22 @@
-<%= simple_form_for [@journey, @pin] do |f| %>
-  <%= f.input :location,
-  input_html: {data: {location_autocomplete_target: "location"}},
-  wrapper_html: {data: {controller: "location-autocomplete",
-  location_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
-  <%= f.input :date %>
-  <%= f.submit %>
-<% end %>
+<br>
+<div class="form-card">
+<br>
+  <%= simple_form_for [@journey, @pin] do |f| %>
+    <div class="form-main">
+      <%= f.label :location %>
+      <%= f.input :location, as: :hidden,
+                  input_html: { class: "",
+                                data: {location_autocomplete_target: "location"}},
+                  wrapper_html: {data: {controller: "location-autocomplete",
+                                        location_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
+      <br>
+      <br>
+      <%= f.input :date %>
+    </div>
+
+    <br>
+    <div class="form-end">
+      <%= f.submit "✓", class: "large", id: "submit-btn" %>
+    </div>
+  <% end %>
+</div>
