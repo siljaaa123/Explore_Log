@@ -1,5 +1,46 @@
-.input {
+@media (max-width: 1800px) {
+  .container {
+    width: 320px;
+  }
+}
+
+#journey_name {
   border-radius: 8px;
   border-color: solid 1px lightgray;
 
+
 }
+
+#journey_description {
+  border-radius: 8px;
+  border-color: solid 1px lightgray;
+}
+
+journey_location {
+  border-radius: 8px;
+  border-color: solid 1px lightgray;
+}
+// .input {
+
+//   border-radius: 8px;
+//   border-color: solid 1px lightgray;
+//   width:90%;
+//   justify-content: center;
+// }
+
+// .start_date {
+//   border-radius: 8px;
+//   border-color: solid 1px lightgray;
+//   width:45%;
+// }
+
+// .end_date {
+//   border-radius: 8px;
+//   border-color: solid 1px lightgray;
+//   width:45%;
+// }
+
+
+// .inputWrapper{
+//   display: block;
+// }
