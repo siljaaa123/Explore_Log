@@ -1,6 +1,6 @@
 class JourneysController < ApplicationController
   before_action :set_journey, only: %i[show edit update map]
-  before_action :set_user, only: %i[new create edit update]
+  before_action :set_user, only: %i[new create edit update index]
 
   def index
     @journeys = Journey.order(start_date: :DESC)

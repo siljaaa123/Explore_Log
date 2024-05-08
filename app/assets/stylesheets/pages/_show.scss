@@ -1,0 +1,43 @@
+.journey-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 35px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.journey-description {
+  flex-grow: 1;
+}
+
+.gray-info {
+  color: gray;
+}
+
+.description-gray {
+  color: gray;
+}
+
+.hate {
+  display: flex;
+  flex-direction: column;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  flex-shrink: 1;
+}
+
+.bottom {
+  align-self: flex-end;
+  bottom: 0;
+}
+
+

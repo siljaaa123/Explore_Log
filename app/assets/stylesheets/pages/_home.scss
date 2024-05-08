@@ -1,4 +1,60 @@
 // Specific CSS for your home-page
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+
+.homepage{
+  width: auto;
+  min-height: 1000px;
+  background-image: image-url("homepage.png");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+  display: flex;
+  flex-direction: column;
+  // justify-content: flex-start;
+  align-items: center;
+  position: relative;
+
+  .title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+
+    h1{
+      margin-top: 120px;
+      margin-bottom: 4px;
+      font-family: "Anton", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      color: $yellow;
+      font-size: 65px;;
+    }
+
+    h3{
+      font-family: "Anton", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      color: $white;
+      font-size: 22px;
+      letter-spacing: 1vw;
+    }
+  }
+
+  .button{
+    position: fixed;
+    bottom: 40px;
+  }
+}
+
+
+@media screen and (max-width:1800px) {
+  .journeys-body {
+    width: 320px;
+  }
 
 .container {
   display: flex;

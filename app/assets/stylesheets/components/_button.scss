@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 
 
@@ -8,9 +9,9 @@
   border: none;
   //margin-left: 30px;
   //margin-right: 30px;
-  width: 45%;
-  margin-bottom: 30px;
+  min-width: 100px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: $button-font;
 }
 
 .small {
@@ -31,9 +32,13 @@
   background-color: #FFD952;
   color: black;
   border: none;
-  width: 80%;
+  min-width: 272px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-
+  font-family: $headers-font;
+  font-weight: 400;
+  font-style: normal;
+  color: $gray;
+  letter-spacing: 1vw;
 }
 
 .red {
