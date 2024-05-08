@@ -1,8 +1,9 @@
 <%= simple_form_for(@journey) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :location %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
+  <%# <%= f.input :name, label: 'Trip Name', required: false, input_html: { class: 'name_input' } %>
+  <%# <%= f.input :start_date, as: :date, required: false, input_html: { class: 'start_date' }  %>
+  <%# <%= f.input :end_date, as: :date, input_html: { class: 'end_date' }  %>
+  <%# <%= f.input :description, label: 'Short Description', input_html: { class: 'description_input' } %>
+  <%= f.file_field :cover_photo, label: 'Add Cover Photo' %>
+  <%= f.file_field :audio_file, label: 'Add Audio' %>
   <%= f.submit %>
 <% end %>
