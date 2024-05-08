@@ -8,3 +8,21 @@
 legend ~ div.form-check:first-of-type {
   clear: left;
 }
+
+.form-card {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+#submit-btn {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+form {
+  min-height: 100vh;
+}
+.required{
+  padding-bottom: 1rem;
+}
