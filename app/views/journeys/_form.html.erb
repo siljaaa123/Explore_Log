@@ -1,13 +1,17 @@
+<%= render "shared/header" %>
 <%= simple_form_for(@journey) do |f| %>
   <%= f.input :name %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.input :description %>
   <%= f.label :location %>
   <%= f.input :location, as: :hidden,
               input_html: { class: "journey_location",
                     data: {location_autocomplete_target: "location"}},
               wrapper_html: {data: {controller: "location-autocomplete",
                                     location_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
-<%= f.submit "✓", class: "large", id: "submit-btn" %>
+  <br>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.input :description %>
+  <%= f.input :cover_photo, as: :file %>
+  <%= f.input :song, as: :file %>
+<%= f.submit "✔️", class: "large", id: "submit-btn" %>
 <% end %>
