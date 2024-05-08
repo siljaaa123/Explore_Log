@@ -1,0 +1,27 @@
+.body{
+  width: auto;
+  min-height: 1000px;
+  background-image: image-url("templatebg.png");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .image {
+
+    background-color: white;
+    border-radius: 12px;
+    margin: 8px;
+    height: 60%;
+  }
+
+  .card-text{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 8px;
+  }
+}
