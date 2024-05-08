@@ -5,9 +5,18 @@ body{
   background-color: $white;
 }
 
+.header{
+  display: none;
+}
+.container{
+  display:flex;
+  flex-direction: column;
+}
+
 .top{
   display: flex;
   flex-direction: row;
+  width: 100%;
   justify-content: space-between;
   margin: 48px 0 24px 0;
 
@@ -63,10 +72,9 @@ body{
 }
 
 @media screen and (max-width:1800px) {
-  .homepage {
-    width: 320px;
+  .journeys-body {
+    width: 390px;
   }
 }
 
 @import "show";
-
