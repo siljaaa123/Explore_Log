@@ -10,14 +10,17 @@
     <%= javascript_importmap_tags %>
   </head>
 
-<body>
-<div class="container">
-  <div class="row">
-    <div class="col">
-        <%= render "shared/flashes" %>
-        <%= yield %>
+
+  <body>
+    <%= render "shared/header" %>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <%= render "shared/flashes" %>
+          <%= yield %>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-</body>
+  </body>
+
 </html>

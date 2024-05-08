@@ -88,10 +88,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_07_164445) do
 
   create_table "templates", force: :cascade do |t|
     t.string "name"
-    t.bigint "pin_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["pin_id"], name: "index_templates_on_pin_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -116,5 +114,4 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_07_164445) do
   add_foreign_key "pin_templates", "pins"
   add_foreign_key "pin_templates", "templates"
   add_foreign_key "pins", "journeys"
-  add_foreign_key "templates", "pins"
 end
