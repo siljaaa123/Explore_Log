@@ -1,2 +1,38 @@
-<h1>Journeys#show</h1>
-<p>Find me in app/views/journeys/show.html.e
+<%# # back button and logo %>
+ <%# card %>
+<%# //city,  country, date and edit button %>
+<%# // description of the journey %>
+<%# // play and share buttons %>
+
+
+
+<body>
+
+    <div class="card">
+      <%# <%= image_tag @journey.image, class: 'journey-image' %> %>
+    </div>
+    <div class="journey-info">
+      <h3><%= @journey.name %></h3>
+      <p><%= @journey.location %></p>
+      <p><%= @journey.start_date %> - <%= @journey.end_date %></p>
+      <%= link_to edit_journey_path(@journey), class: "btn small" do %>
+        <i class="fa-regular fa-pen-to-square"></i>
+        <% end %>
+    </div>
+    <div class="journey-description">
+      <p><%= @journey.description %></p>
+    </div>
+
+    <div class="action-buttons">
+      <%# TODO: add link_to share and play when they are defined %>
+      <button class="btn small">
+        <i class="fa-regular fa-circle-play"></i>
+      </button>
+      <button class="btn small">
+        <i class="fa-solid fa-share-nodes"></i>
+      </button>
+    </div>
+
+
+
+</body>
