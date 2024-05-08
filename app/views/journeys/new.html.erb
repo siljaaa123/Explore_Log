@@ -1,3 +1,18 @@
-<h1>Journeys#new</h1>
-<p>Find me in app/views/journeys/new.html.erb</p>
-<%= render "form", journey: @journey %>
+
+<%# <%= render "form", journey: @journey %>
+<%= render "shared/header" %>
+      <form>
+        <label for="trip_name">Trip Name</label><br>
+        <input class="input" type="text" id="trip_name" name="trip_name"><br><br>
+        <label for="start_date">Start Date</label><br>
+        <input class="input" type="date" id="start_date" name="start_date"><br><br>
+        <label for="end_date">End Date</label><br>
+        <input class="input" type="date" id="end_date" name="end_date"><br><br>
+        <label for="description">Description</label><br>
+        <textarea class="input" id="description" name="description"></textarea><br><br>
+        <label for="image">Add Image</label><br>
+        <input class="input" type="file" id="image" name="image"><br><br>
+        <label for="audio">Add Audio</label><br>
+        <input class="input" type="file" id="audio" name="audio"><br><br>
+        <input class="input" type="submit" value="Submit">
+      </form>

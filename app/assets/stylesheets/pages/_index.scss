@@ -1,5 +1,6 @@
 // Import page-specific CSS files here.
 @import "home";
+
 body{
   background-color: $white;
 }
@@ -66,3 +67,6 @@ body{
     width: 320px;
   }
 }
+
+@import "show";
+
