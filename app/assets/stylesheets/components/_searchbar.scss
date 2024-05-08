@@ -53,15 +53,16 @@
 
 .mapboxgl-ctrl-geocoder--input{
   top: 0;
-  right: 0;
+  left: 50%;
+  background-color: white;
+  transform: translateX(-50%);
   position: absolute;
   color: lightgray;
   font-style: italic;
   border-radius: 25px;
-  border: 1px solid lightgray;
+  border: 2px solid lightgray;
   height: 40px;
 }
-
 .mapboxgl-ctrl-geocoder {
   display: flex;
   align-items: center;
@@ -73,4 +74,5 @@
   left: 262px !important;
   width: 23px;
   height: 23px;
+  z-index: inherit;
 }
