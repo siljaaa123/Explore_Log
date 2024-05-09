@@ -13,7 +13,7 @@ puts 'Cleaning database'
 Template.destroy_all
 Pin.destroy_all
 Journey.destroy_all
-# User.destroy_all
+User.destroy_all
 
 puts 'Creating a user, a journey, a pin and a template'
 user = User.create!(email: "me@me.com", password: "password", username: "me")

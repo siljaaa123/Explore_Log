@@ -1,4 +1,3 @@
-<%= render "shared/header" %>
 <div class="journeys-body">
   <div class="container">
     <div class="top">
@@ -41,9 +40,7 @@
     <% if @journeys.any? %>
       <div class="cards">
         <% @journeys.each do |journey| %>
-          <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path(journey.cover_photo.key)%>');" class="summer">
-          </div>
-          <div class="card">
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path(journey.cover_photo.key)%>');" class="summer">
             <%= link_to journey_path(journey) do %>
               <div class="card-content">
                 <div class="pin-text">
@@ -51,8 +48,8 @@
                 </div>
                 <h2><%= journey.name %></h2>
               </div>
-            </div>
             <% end %>
+          </div>
         <% end %>
       </div>
     <% else %>
