@@ -39,8 +39,9 @@
     </div>
 
     <% if @journeys.any? %>
-      <div class="card">
-          <%= @journeys.each do |journey| %>
+      <div class="cards">
+        <% @journeys.each do |journey| %>
+          <div class="card">
             <%= link_to journey_path(journey) do %>
               <%= image_tag("https://res.cloudinary.com/djvyamesz/image/upload/v1715177308/ibiza_ipw4id.jpg") %>
               <div class="card-content">
@@ -50,7 +51,8 @@
                 <h2><%= journey.name %></h2>
               </div>
             <% end %>
-          <% end %>
+          </div>
+        <% end %>
       </div>
     <% else %>
       <div>
