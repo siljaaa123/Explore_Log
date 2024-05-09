@@ -9,7 +9,16 @@
 
 .logo {
   font-family: anton;
+  color: $gray;
 
+  &:hover{
+    color: $yellow;
+  }
+
+}
+
+#logo{
+  text-decoration: none;
 }
 
 @media (max-width: 1800px) {

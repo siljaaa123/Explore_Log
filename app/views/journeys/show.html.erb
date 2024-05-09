@@ -7,15 +7,20 @@
 
 
 <%= render "shared/header" %>
-    <div class="card">
-      <%= image_tag "lama.png", class: 'journey-image' %>
+    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path(@journey.cover_photo.key)%>');" class="summer">
     </div>
     <div class="journey-info">
       <div class="journey-header mt-4">
         <h1><%= @journey.name %></h1>
-        <%= link_to edit_journey_path(@journey), class: "edit btn small" do %>
-          <i class="fa-regular fa-pen-to-square"></i>
-        <% end %>
+        <div class="buttons">
+          <%= link_to edit_journey_path(@journey), class: "edit btn small" do %>
+            <i class="fa-regular fa-pen-to-square"></i>
+          <% end %>
+          <br>
+          <%= link_to journey_path(@journey), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
+            <button class ="btn red"><i class="fa-solid fa-trash"></i></button>
+          <% end %>
+        </div>
       </div>
       <div class="gray-info">
         <p>
@@ -39,11 +44,11 @@
 <br>
     <div class="action-buttons">
       <%# TODO: add link_to share and play when they are defined %>
-      <button class="btn bottom">
+      <%= link_to map_journey_path, class: "btn bottom" do %>
         <i class="fa-regular fa-circle-play"></i>
-      </button>
-      <button class="btn bottom">
+      <% end %>
+       <%= link_to (), class: "btn bottom" do %>
         <i class="fa-solid fa-share-nodes"></i>
-      </button>
+      <% end %>
     </div>
   </div>
