@@ -5,7 +5,9 @@ class JourneysController < ApplicationController
   def index
     @journeys = Journey.order(start_date: :DESC)
     if params[:query].present?
-      @journeys = @journeys.where("title ILIKE ?", "%#{params[:query]}%")
+      @journeys = @journeys.where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      puts "Journey does not exist"
     end
   end
 

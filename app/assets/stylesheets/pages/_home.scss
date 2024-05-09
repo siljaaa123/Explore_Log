@@ -6,13 +6,12 @@
 .homepage{
   width: 100vw;
   min-height: 1000px;
-  background-image: image-url("homepage.png");
+  background-image: url("homepage.png");
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
   display: flex;
   flex-direction: column;
-  // justify-content: flex-start;
   align-items: center;
   position: relative;
 

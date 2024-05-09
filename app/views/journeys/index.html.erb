@@ -2,7 +2,9 @@
   <div class="container">
     <div class="top">
       <div class="pic-text">
-        <%= image_tag("bob.png", class: "profile-pic") %>
+        <%= link_to user_path(@user) do %>
+          <%= image_tag("bob.png", class: "profile-pic") %>
+        <% end %>
         <p>@bobbrian123<%= @user.username %></p>
       </div>
       <div class="button">
@@ -19,15 +21,15 @@
     <div class="search-home">
       <div class="d-block my-4">
         <div class="search-wrapper">
-            <%= form_with url: journeys_path, method: :get, class: "d-flex" do %>
+            <%= form_with url: journeys_path, method: :get, class: "d-flex search-form" do %>
               <%= text_field_tag :query,
                     params[:query],
-                    class: "form-control",
+                    class: "search-journey",
                     placeholder: "Journey Name..."
                 %>
-              <%= submit_tag "", name: "", class: "search-button", id: "search-btn" %>
+              <%= submit_tag "", name: "", class: "search-button"%>
           <% end %>
-          <button type="button" class="search-button">
+          <button type="button" id="search">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
         </div>
@@ -35,16 +37,24 @@
       <br>
     </div>
 
-    <div class="card">
-      <%= @journeys.each do |journey| %>
-        <%= image_tag("https://res.cloudinary.com/djvyamesz/image/upload/v1715177308/ibiza_ipw4id.jpg") %>
-        <div class="card-content">
-          <div class="pin-text">
-            <p><%= image_tag "pin2.png", class: "pin"%> <%= journey.location %> </p>
-          </div>
-          <h2><%= journey.name %></h2>
-        </div>
-      <% end %>
+    <% if @journeys.any? %>
+      <div class="card">
+          <%= @journeys.each do |journey| %>
+            <%= link_to journey_path(journey) do %>
+              <%= image_tag("https://res.cloudinary.com/djvyamesz/image/upload/v1715177308/ibiza_ipw4id.jpg") %>
+              <div class="card-content">
+                <div class="pin-text">
+                  <p><%= image_tag "pin2.png", class: "pin"%> <%= journey.location %> </p>
+                </div>
+                <h2><%= journey.name %></h2>
+              </div>
+            <% end %>
+          <% end %>
       </div>
+    <% else %>
+      <div>
+        <p>Journey does not exist</p>
+      </div>
+    <% end %>
   </div>
 </div>

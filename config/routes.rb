@@ -24,4 +24,6 @@ Rails.application.routes.draw do
     resources :templates, only: %i[index show]
     resources :stickers, only: %i[index show]
   end
+
+  resources :users, only: %i[show]
 end
