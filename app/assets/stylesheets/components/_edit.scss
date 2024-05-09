@@ -1,0 +1,20 @@
+#email{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 8px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.update {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  font-family: $button-font;
+
+  p {
+    margin: 0;
+  }
+}
