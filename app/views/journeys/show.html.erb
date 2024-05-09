@@ -39,11 +39,11 @@
 <br>
     <div class="action-buttons">
       <%# TODO: add link_to share and play when they are defined %>
-      <button class="btn bottom">
+      <%= link_to map_journey_path, class: "btn bottom" do %>
         <i class="fa-regular fa-circle-play"></i>
-      </button>
-      <button class="btn bottom">
+      <% end %>
+       <%= link_to (), class: "btn bottom" do %>
         <i class="fa-solid fa-share-nodes"></i>
-      </button>
+      <% end %>
     </div>
   </div>
