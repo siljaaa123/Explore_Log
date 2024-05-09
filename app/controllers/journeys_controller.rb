@@ -46,8 +46,8 @@ class JourneysController < ApplicationController
   end
 
   def map
-    @pins = Pin.all
-    @pin = Pin.find(params[:id])
+    @pins = @journeys.pin
+    # @pin = Pin.find(params[:id])
     @markers = @pins.geocoded.map do |pin|
       {
         lat: pin.latitude,

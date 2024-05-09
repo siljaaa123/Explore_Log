@@ -1,14 +1,13 @@
 <%= render "shared/header" %>
 <div>
   <div class="card-body">
-    <p>Blank</p>
+    <p>BLANK</p>
   </div>
   <% @templates.each do |template| %>
-    <%= link_to template.name do %>
+    <%= link_to "templates/#{template.name}" do %>
       <div class="card-body">
-      <p><%= template.name %></p>
+      <p><%= template.name.upcase %></p>
     <% end %>
   </div>
   <% end %>
 </div>
-
