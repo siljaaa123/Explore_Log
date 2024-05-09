@@ -20,9 +20,7 @@ legend ~ div.form-check:first-of-type {
   left: 50%;
   transform: translateX(-50%);
 }
-form {
-  min-height: 100vh;
-}
 .required{
-  padding-bottom: 1rem;
+  padding-bottom: 2px;
+  padding-top: 6px;
 }

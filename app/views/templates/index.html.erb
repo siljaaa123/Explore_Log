@@ -1,18 +1,14 @@
-
-<h1>Lucy Template</h1>
-<div class="template">
-<div class = "container">
-<div class = "image">
-
+<%= render "shared/header" %>
+<div>
+  <div class="card-body">
+    <p>Blank</p>
+  </div>
+  <% @templates.each do |template| %>
+    <%= link_to template.name do %>
+      <div class="card-body">
+      <p><%= template.name %></p>
+    <% end %>
+  </div>
+  <% end %>
 </div>
-<div class= "card-text">
-<p><strong>@username</strong></p>
-<p class= "user-text">Enter text</p>
-</div>
-</div>
-</div>
-
-<h1>Templates#index</h1>
-
-<%= render "templatem" %>
 
