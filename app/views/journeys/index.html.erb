@@ -41,17 +41,18 @@
     <% if @journeys.any? %>
       <div class="cards">
         <% @journeys.each do |journey| %>
+          <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path(journey.cover_photo.key)%>');" class="summer">
+          </div>
           <div class="card">
             <%= link_to journey_path(journey) do %>
-              <%= image_tag("https://res.cloudinary.com/djvyamesz/image/upload/v1715177308/ibiza_ipw4id.jpg") %>
               <div class="card-content">
                 <div class="pin-text">
                   <p><%= image_tag "pin2.png", class: "pin"%> <%= journey.location %> </p>
                 </div>
                 <h2><%= journey.name %></h2>
               </div>
+            </div>
             <% end %>
-          </div>
         <% end %>
       </div>
     <% else %>
