@@ -1,0 +1,71 @@
+.profile-pic-area{
+  margin: 80px 0 40px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.info{
+  display: flex;
+  flex-direction: column;
+
+
+  #username {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 8px;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  #email{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 8px;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  #password{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .edit{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+
+    p{
+      margin: 0;
+    }
+  }
+
+  .delete{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+
+    p{
+      margin: 0;
+    }
+  }
+}
+
+.logout-btn{
+  position: fixed;
+  bottom: 40px;
+}
+
+@media screen and (max-width:1800px) {
+  .profile {
+    width: 320px;
+  }
+}

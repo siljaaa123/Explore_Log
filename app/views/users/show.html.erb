@@ -1,0 +1,41 @@
+<div class="profile">
+  <div class="profile-pic-area">
+    <%= image_tag("bob.png", class: "avatar-large") %>
+  </div>
+
+  <div data-controller="toggle" class="mt-5">
+    <div class="info">
+      <div id="username">
+        <p><strong>Username</strong></p>
+        <p><%= @user.username %></p>
+      </div>
+      <div id="email">
+        <p><strong>Email</strong></p>
+        <p><%= @user.email %></p>
+      </div>
+      <div id="password">
+        <p><strong>Password</strong></p>
+        <p>**********</p>
+      </div>
+      <br>
+      <div class="edit">
+        <p><strong>Edit</strong></p>
+        <%= link_to edit_user_registration_path do %>
+          <button class ="btn"><i class="fa-solid fa-pen-to-square"></i></button>
+        <% end %>
+      </div>
+      <hr>
+      <div class="delete">
+        <p><strong>Delete account</strong></p>
+        <%= link_to edit_user_registration_path do %>
+          <button class ="btn red"><i class="fa-solid fa-user-xmark"></i></button>
+        <% end %>
+      </div>
+    </div>
+    <div class="logout-btn">
+      <%= link_to edit_user_registration_path do %>
+        <button class ="btn large">LOG OUT</button>
+      <% end %>
+    </div>
+  </div>
+</div>

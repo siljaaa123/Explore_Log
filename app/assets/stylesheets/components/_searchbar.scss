@@ -14,7 +14,7 @@
 
 .search-wrapper {
   position: relative;
-  width:90%;
+  width:95%;
   }
 
 .search-input {
@@ -36,6 +36,7 @@
   position: absolute;
   padding: 0;
 }
+
 .form-control {
   display: flex;
   justify-content: center;
@@ -45,6 +46,30 @@
   border-radius: 25px;
   border: 1px solid lightgray;
   background-color: white;
+}
+
+.search-journey {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: lightgray;
+  font-style: italic;
+  border-radius: 25px;
+  border: 1px solid lightgray;
+  background-color: white;
+  height: 32px;
+  text-indent: 8px;
+}
+
+#search{
+  top: 0;
+  right: 0;
+  height: 100%;
+  background: none;
+  border: none;
+  position: absolute;
+  padding: 0;
+  height: 32px;
 }
 
 #query {
@@ -73,4 +98,8 @@
   left: 262px !important;
   width: 23px;
   height: 23px;
+}
+
+.search-form{
+  min-height: 32px !important;
 }
