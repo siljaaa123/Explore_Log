@@ -39,6 +39,7 @@
     </div>
 
     <% if @journeys.any? %>
+      <div class="cards">
         <% @journeys.each do |journey| %>
           <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path(journey.cover_photo.key)%>');" class="summer">
           </div>
@@ -53,6 +54,7 @@
             </div>
             <% end %>
         <% end %>
+      </div>
     <% else %>
       <div>
         <p>Journey does not exist</p>
