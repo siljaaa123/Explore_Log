@@ -10,11 +10,14 @@
 
       <div class="form-inputs mt-3">
         <strong><%= f.input :email, required: true, autofocus: true, id: "email" %></strong>
-
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
         <% end %>
         <div class="mt-2">
+        <strong><%= f.input :username,
+                    hint: "leave it blank if you don't want to change it",
+                    required: false,
+                    input_html: { autocomplete: "new-username" } %></strong>
         <strong><%= f.input :password,
                     hint: "Leave it blank if you don't want to change it",
                     required: false,
@@ -40,3 +43,4 @@
       </div>
   <% end %>
 </div>
+

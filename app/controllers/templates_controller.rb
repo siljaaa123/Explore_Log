@@ -4,7 +4,10 @@ class TemplatesController < ApplicationController
   end
 
   def show
-    @template = Template.find(params[:id])
-    # check the name of the template and render the view with the associated name
+    if params[:id] == 'floral'
+      render 'floral'
+    else
+      @template = Template.find(params[:id])
+    end
   end
 end
