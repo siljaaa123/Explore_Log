@@ -4,10 +4,11 @@ import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 
 
 export default class extends Controller {
+  static targets = ["button"]
+
   static values = {
     apiKey: String,
     markers: Array
-    // journeyLocation: Array
   }
 
   connect() {
@@ -17,7 +18,6 @@ export default class extends Controller {
       this.markersValue = [];
     }
 
-    console.log(this.markersValue)
     if (this.element.dataset.journeyLocation) {
       const journeyLocation = JSON.parse(this.element.dataset.journeyLocation)
       this.map = new mapboxgl.Map({
@@ -26,17 +26,20 @@ export default class extends Controller {
         center: [journeyLocation.lng, journeyLocation.lat],
         zoom: 10
       })
+
     } else {
       this.map = new mapboxgl.Map({
         container: this.element,
         style: "mapbox://styles/mapbox/satellite-streets-v12"
       })
+
       this.#addMarkersToMap()
       this.#fitMapToMarkers()
     }
     this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl }))
-  }
+
+    }
 
   #addMarkersToMap() {
     if (this.markersValue.length > 0) {
@@ -50,7 +53,7 @@ export default class extends Controller {
           .addTo(this.map)
       })
     } else {
-        // this.#centerMapToLocation()
+
     }
   }
 
@@ -59,9 +62,4 @@ export default class extends Controller {
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
   }
-
-  // #centerMapToLocation() {
-
-  //   console.log(journeyLocation.lat)
-  // }
 }
