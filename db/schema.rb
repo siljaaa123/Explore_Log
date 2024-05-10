@@ -90,13 +90,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_09_121349) do
     t.index ["sticker_id"], name: "index_pin_stickers_on_sticker_id"
   end
 
-  create_table "pin_templates", force: :cascade do |t|
+  create_table "pintemplates", force: :cascade do |t|
     t.bigint "pin_id", null: false
     t.bigint "template_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["pin_id"], name: "index_pin_templates_on_pin_id"
-    t.index ["template_id"], name: "index_pin_templates_on_template_id"
+    t.index ["pin_id"], name: "index_pintemplates_on_pin_id"
+    t.index ["template_id"], name: "index_pintemplates_on_template_id"
   end
 
   create_table "pins", force: :cascade do |t|
@@ -145,8 +145,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_09_121349) do
   add_foreign_key "journeys", "users"
   add_foreign_key "pin_stickers", "pins"
   add_foreign_key "pin_stickers", "stickers"
-  add_foreign_key "pin_templates", "pins"
-  add_foreign_key "pin_templates", "templates"
+  add_foreign_key "pintemplates", "pins"
+  add_foreign_key "pintemplates", "templates"
   add_foreign_key "pins", "journeys"
   add_foreign_key "templates", "pins"
 end
