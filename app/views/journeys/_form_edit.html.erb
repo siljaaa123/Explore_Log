@@ -14,7 +14,7 @@
   <%= f.input :cover_photo, as: :file %>
   <%= f.input :song, as: :file %>
   <div class="card-map" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('map.jpg');">
-    <%= link_to edit_journey_path(@journey), class: "edit map-edit" do %>
+    <%= link_to map_journey_path(@journey), class: "edit map-edit" do %>
       <i class="fa-regular fa-pen-to-square"></i>
     <% end %>
   </div>
