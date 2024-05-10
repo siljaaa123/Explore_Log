@@ -5,7 +5,7 @@
         <%= link_to user_path(@user) do %>
           <%= image_tag("bob.png", class: "profile-pic") %>
         <% end %>
-        <p>@bobbrian123<%= @user.username %></p>
+        <p><%= @user.username %></p>
       </div>
       <div class="button">
         <%= link_to new_journey_path do %>

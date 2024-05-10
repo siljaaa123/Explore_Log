@@ -3,7 +3,7 @@ class JourneysController < ApplicationController
   before_action :set_user, only: %i[new create edit update index]
 
   def index
-    @journeys = Journey.order(start_date: :DESC)
+    @journeys = @user.journeys.order(start_date: :DESC)
     if params[:query].present?
       @journeys = @journeys.where("name ILIKE ?", "%#{params[:query]}%")
     else
