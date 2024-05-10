@@ -3,7 +3,7 @@
   <br>
   <br>
   <br>
-  
+
   <br>
   <br>
   <br>
@@ -19,6 +19,14 @@
     <div class="card-body card-floral" data-templates-target="textContainer">
       <textarea id="text-input" placeholder="Enter text here" data-templates-target="textInput"></textarea>
     </div>
-    <button data-templates-target="button" data-action="click->templates#handleTextChange">Save</button>
+    <button data-templates-target="button" data-action="click->templates#handleTextChange">Add</button>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <%= link_to journey_path(@pin.journey) do %>
+      <button class="btn large">Save</button>
+    <% end %>
   </div>
 </div>

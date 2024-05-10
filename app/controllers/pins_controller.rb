@@ -19,7 +19,7 @@ class PinsController < ApplicationController
     @journey.user = @user
     @pin.journey = @journey
     if @pin.save
-      redirect_to pin_path(@pin)
+      redirect_to pin_templates_path(@pin)
     else
       render :new, status: :unprocessable_entity
     end

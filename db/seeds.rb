@@ -10,17 +10,17 @@
 require 'open-uri'
 
 puts 'Cleaning database'
-Template.destroy_all
-Pin.destroy_all
-Journey.destroy_all
-User.destroy_all
+# Template.destroy_all
+# Pin.destroy_all
+# Journey.destroy_all
+# # User.destroy_all
 
 puts 'Creating a user, a journey, a pin and a template'
-user = User.create!(email: "me@me.com", password: "password", username: "me")
+user = User.create!(email: "siljas@me.com", password: "password", username: "me")
 journey = Journey.new(name: "Ibiza", location: "Spain", start_date: Date.new(2024, 5, 1), end_date: Date.new(2024, 5, 10), completed: false, description: "Bob & Brian honeymoon", user_id: user.id)
 photo = URI.open("https://res.cloudinary.com/dsqjxikd6/image/upload/v1715267267/SummerHolidays_khutfu.png")
 journey.cover_photo.attach(io: photo, filename: "SummerHolidays.png", content_type: "image/png")
 journey.save!
-# pin = Pin.create(location: "Ibiza", date: Date.new(2024, 5, 7), journey_id: journey.id)
-# Template.create!(name: "floral", pin: pin)
+pin = Pin.create(location: "Ibiza", date: Date.new(2024, 5, 7), journey_id: journey.id)
+Template.create!(name: "floral", pin_id: pin.id)
 puts 'Finished'
