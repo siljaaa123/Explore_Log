@@ -13,5 +13,8 @@
   <%= f.input :description %>
   <%= f.input :cover_photo, as: :file %>
   <%= f.input :song, as: :file %>
-<%= f.submit "✔️", class: "large", id: "submit-btn" %>
+  <%# <%= f.submit "✔️", class: "large", id: "submit-btn" %>
+  <%= button_tag( class: "large", id: "submit-btn" ) do  %>
+    <i class="fa-solid fa-check"></i>
+  <% end %>
 <% end %>
