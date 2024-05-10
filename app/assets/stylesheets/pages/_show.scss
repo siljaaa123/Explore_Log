@@ -12,28 +12,43 @@ h1 {
   vertical-align: middle;
 }
 
-.journey-description {
-  flex-grow: 1;
-}
 
 .gray-info {
   color: gray;
+
+  h1{
+    color: $gray;
+  }
+}
+
+.description{
+  color: $gray;
+  margin-bottom: 8px;
+  font-weight: bold;
 }
 
 .description-gray {
   color: gray;
+
 }
 
 .hate {
-  display: flex;
-  flex-direction: column;
+
+  .journey-description {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .action-buttons {
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 40px;
+  }
 }
 
-.action-buttons {
-  display: flex;
-  justify-content: space-between;
-  flex-shrink: 1;
-}
 
 .bottom {
   align-self: flex-end;
@@ -41,4 +56,10 @@ h1 {
 }
 img {
   object-fit: cover;
+}
+
+.info-buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

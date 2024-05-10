@@ -9,31 +9,31 @@
 <%= render "shared/header" %>
     <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path(@journey.cover_photo.key)%>');" class="summer">
     </div>
-    <div class="journey-info">
-      <div class="journey-header mt-4">
-        <h1><%= @journey.name %></h1>
-        <div class="buttons">
-          <%= link_to edit_journey_path(@journey), class: "edit btn small" do %>
-            <i class="fa-regular fa-pen-to-square"></i>
-          <% end %>
-          <br>
-          <%= link_to journey_path(@journey), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
-            <button class ="btn red"><i class="fa-solid fa-trash"></i></button>
-          <% end %>
+    <div class="info-buttons">
+      <div class="journey-info">
+        <div class="gray-info">
+          <h1><%= @journey.name %></h1>
+          <p>
+              <i class="fa-solid fa-location-dot"></i>
+              <%= @journey.location %>
+          </p>
+          <p><i class="fa-regular fa-calendar"></i><%= @journey.start_date.strftime("%e %B") %> - <%= @journey.end_date.strftime("%e %B %Y") %></p>
         </div>
       </div>
-      <div class="gray-info">
-        <p>
-            <i class="fa-solid fa-location-dot"></i>
-            <%= @journey.location %>
-        </p>
-        <p><i class="fa-regular fa-calendar"></i><%= @journey.start_date.strftime("%e %B") %> - <%= @journey.end_date.strftime("%e %B %Y") %></p>
+      <div class="buttons">
+        <%= link_to edit_journey_path(@journey), class: "edit btn small" do %>
+          <i class="fa-regular fa-pen-to-square"></i>
+        <% end %>
+        <br>
+        <%= link_to journey_path(@journey), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
+          <button class ="btn red"><i class="fa-solid fa-trash"></i></button>
+        <% end %>
       </div>
     </div>
 <br>
   <div class="hate">
     <div class="journey-description">
-      <p>Description</p>
+      <p class="description">Description</p>
       <p class="description-gray"><%= @journey.description%></p>
     </div>
 <br>
