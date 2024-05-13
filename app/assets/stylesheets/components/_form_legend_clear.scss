@@ -50,3 +50,49 @@ legend ~ div.form-check:first-of-type {
   display: inline-block;
   vertical-align: middle;
 }
+
+.form-dates{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 320px;
+  overflow:hidden;
+
+  .start{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 8px 4px 8px 0;
+
+    input{
+      height: 30px;
+      width:156px;
+      text-indent: 8px;
+    }
+  }
+
+  .end{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 18px 0px 8px 4px;
+
+    input{
+      height: 30px;
+      width:156px;
+      text-indent: 8px;
+    }
+
+    input::placeholder{
+      text-align: center;
+    }
+  }
+}
+
+
+
+@media (max-width: 1800px) {
+  .form-edit {
+    width: 320px;
+  }
+}
