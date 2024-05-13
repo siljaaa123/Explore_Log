@@ -24,7 +24,8 @@
               <%= text_field_tag :query,
                     params[:query],
                     class: "search-journey",
-                    placeholder: "Journey Name..."
+                    placeholder: "Journey Name...",
+                    autocomplete: "off"
                 %>
               <%= submit_tag "", name: "", class: "search-button"%>
           <% end %>
