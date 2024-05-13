@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     member do
       get :map
     end
+    resources :videos, only: %i[index]
   end
 
   resources :pins, except: %i[new create update edit] do
