@@ -11,9 +11,15 @@
   <%= f.input :start_date %>
   <%= f.input :end_date %>
   <%= f.input :description %>
-  <%= f.input :cover_photo, as: :file %>
-  <%= f.input :song, as: :file %>
-  <div class="card-map" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('map.jpg');">
+  <%= f.label :cover_photo, class: "btn mt-3" do %>
+    <i class="fa-solid fa-camera"></i>
+    <%= f.file_field :cover_photo, class: "hidden-input" %>
+  <% end %>
+  <%= f.label :song, class: "btn mt-3", id: "music" do %>
+    <i class="fa-solid fa-music"></i>
+    <%= f.file_field :song, class: "hidden-input" %>
+  <% end %>
+  <div class="card-map mt-4" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('map.jpg');">
     <%= link_to map_journey_path(@journey), class: "edit map-edit" do %>
       <i class="fa-regular fa-pen-to-square"></i>
     <% end %>

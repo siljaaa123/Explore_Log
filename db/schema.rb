@@ -59,7 +59,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_10_151233) do
   create_table "invitations", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "journey_id", null: false
-    t.boolean "accepted"
+    t.boolean "accepted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["journey_id"], name: "index_invitations_on_journey_id"
@@ -71,7 +71,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_10_151233) do
     t.string "location"
     t.date "start_date"
     t.date "end_date"
-    t.boolean "completed"
+    t.boolean "completed", default: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -119,10 +119,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_10_151233) do
 
   create_table "templates", force: :cascade do |t|
     t.string "name"
-    t.bigint "pin_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["pin_id"], name: "index_templates_on_pin_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -149,5 +147,4 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_10_151233) do
   add_foreign_key "pin_templates", "pins"
   add_foreign_key "pin_templates", "templates"
   add_foreign_key "pins", "journeys"
-  add_foreign_key "templates", "pins"
 end
