@@ -6,8 +6,21 @@ class TemplatesController < ApplicationController
   end
 
   def show
-    if params[:id] == 'floral'
+    case params[:id]
+    when 'floral'
       render 'floral'
+    when 'christmas'
+      render 'christmas'
+    when 'roadtrip'
+      render 'roadtrip'
+    when 'ocean'
+      render 'ocean'
+    when 'vintage'
+      render 'vintage'
+    when 'family'
+      render 'family'
+    when 'love'
+      render 'love'
     else
       @template = Template.find(params[:id])
     end

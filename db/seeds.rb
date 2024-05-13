@@ -9,9 +9,11 @@
 #   end
 require 'open-uri'
 
+
+
 puts 'Cleaning database'
 puts 'Creating a user, a journey, a pin and a template'
-user = User.create!(email: "me@me.com", password: "password", username: "me")
+user = User.create!(email: "hola@me.com", password: "password", username: "me")
 journey = Journey.new(name: "Ibiza", location: "Spain", start_date: Date.new(2024, 5, 1), end_date: Date.new(2024, 5, 10), completed: false, description: "Bob & Brian honeymoon", user_id: user.id)
 photo = URI.open("https://res.cloudinary.com/dsqjxikd6/image/upload/v1715267267/SummerHolidays_khutfu.png")
 journey.cover_photo.attach(io: photo, filename: "SummerHolidays.png", content_type: "image/png")

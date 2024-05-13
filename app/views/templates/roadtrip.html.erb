@@ -1,6 +1,4 @@
-
-
-<div class="floral-bg" data-controller='templates' data-templates-target="page" data-pin-id="<%= @pin.id %>">
+<div class="roadtrip-bg" data-controller='templates' data-templates-target="page" data-pin-id="<%= @pin.id %>">
 <%= render "shared/headertemplate" %>
   <br>
   <br>
@@ -10,18 +8,18 @@
   <br>
   <br>
   <br>
-  <div class="floral">
-    <div class="frame-floral text-center" data-templates-target="frame">
+  <div class="roadtrip">
+    <div class="frame-roadtrip text-center" data-templates-target="frame">
       <img id="uploaded-photo" src="#" alt="Uploaded Photo" style="display: none;" data-templates-target="uploadedPhoto">
       <input type="file" id="photo-input" accept="image/*" data-templates-target="photoInput" data-action="change->templates#handlePhotoChange" style="display: none;">
       <label for="photo-input">
         <i class="fa-solid fa-camera"></i>
       </label>
     </div>
-    <p class="sticker">🌻</p>
+    <p class="sticker">🚙</p>
     <br>
     <br>
-    <div class="card-body card-floral" data-templates-target="textContainer">
+    <div class="card-body card-roadtrip" data-templates-target="textContainer">
       <textarea id="text-input" placeholder="Enter text here" data-templates-target="textInput"></textarea>
     </div>
     <button data-templates-target="button" data-action="click->templates#handleTextChange">Add</button>
