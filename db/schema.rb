@@ -92,7 +92,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_10_151233) do
 
   create_table "pin_templates", force: :cascade do |t|
     t.bigint "pin_id", null: false
-    t.bigint "template_id", null: false
+    t.bigint "template_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "html_content"
