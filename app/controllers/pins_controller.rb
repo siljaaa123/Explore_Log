@@ -8,6 +8,7 @@ class PinsController < ApplicationController
   end
 
   def show
+    @template_content = @pin.pin_templates.last&.html_content
   end
 
   def new

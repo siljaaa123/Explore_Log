@@ -1,9 +1,8 @@
-<div class="floral-bg" data-controller='templates'>
+<div class="floral-bg" data-controller='templates' data-templates-target="page" data-pin-id="<%= @pin.id %>">
   <br>
   <br>
   <br>
   <br>
-
   <br>
   <br>
   <br>
@@ -25,8 +24,8 @@
     <br>
     <br>
     <br>
-    <%= link_to journey_path(@pin.journey) do %>
-      <button class="btn large">Save</button>
-    <% end %>
+
+      <button class="btn large" data-action="click->templates#savePin">Save</button>
+
   </div>
 </div>
