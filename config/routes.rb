@@ -25,4 +25,5 @@ Rails.application.routes.draw do
     resources :templates, only: %i[index show]
   end
   resources :users, only: %i[show]
+  post '/save_template', to: 'pin_templates#create'
 end

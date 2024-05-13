@@ -1,9 +1,12 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["textInput", "photoInput", "uploadedPhoto", "frame", "textContainer", "button", "text"]
+
+  static targets = ["textInput", "photoInput", "uploadedPhoto", "frame", "textContainer", "button", "page", "text"]
+
 
   connect() {
+    console.log()
   }
 
   handlePhotoChange(event) {
@@ -24,6 +27,7 @@ export default class extends Controller {
     this.buttonTarget.classList.add("d-none")
   }
 
+
   changeText(event) {
 
     this.textInputTarget.classList.remove("d-none")
@@ -40,5 +44,21 @@ export default class extends Controller {
     //this.textInputTarget.appendChild(text);
 
     this.buttonTarget.classList.remove("d-none")
+
+  savePin() {
+    const htmlContent = this.pageTarget.outerHTML;
+    const pinId = this.element.dataset.pinId;
+    const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+    fetch('/save_template', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': token },
+      body: JSON.stringify({ pinId: pinId, htmlContent: htmlContent }),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      //window.location.href = `/pins/${pinId}`;
+    })
+
   }
 }
