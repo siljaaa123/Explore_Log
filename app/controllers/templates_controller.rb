@@ -6,8 +6,11 @@ class TemplatesController < ApplicationController
   end
 
   def show
-    if params[:id] == 'floral'
+    case params[:id]
+    when 'floral'
       render 'floral'
+    when 'blank'
+      render 'blank'
     else
       @template = Template.find(params[:id])
     end
