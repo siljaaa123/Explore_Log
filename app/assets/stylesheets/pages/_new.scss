@@ -6,19 +6,26 @@
 
 #journey_name {
   border-radius: 8px;
-  border-color: solid 1px lightgray;
-
-
+  border: solid 1.5px $border-color;
+  height: 40px;
+  color: $gray;
+  text-indent: 8px;
 }
 
 #journey_description {
   border-radius: 8px;
-  border-color: solid 1px lightgray;
+  border: solid 1.5px $border-color;
+  height: 120px;
+  color: $gray;
+  text-indent: 8px;
 }
 
-journey_location {
+.mapboxgl-ctrl-geocoder--input {
   border-radius: 8px;
-  border-color: solid 1px lightgray;
+  border: solid 1.5px $border-color;
+  height: 40px;
+  color: lightgray;
+  color: $gray;
 }
 // .input {
 
