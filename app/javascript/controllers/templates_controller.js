@@ -44,6 +44,7 @@ export default class extends Controller {
     //this.textInputTarget.appendChild(text);
 
     this.buttonTarget.classList.remove("d-none")
+  }
 
   savePin() {
     const htmlContent = this.pageTarget.outerHTML;
@@ -58,6 +59,5 @@ export default class extends Controller {
     .then(data => {
       window.location.href = `/pins/${pinId}`;
     })
-
   }
 }

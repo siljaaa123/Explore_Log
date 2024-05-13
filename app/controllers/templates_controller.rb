@@ -1,5 +1,6 @@
 class TemplatesController < ApplicationController
   before_action :set_pin, only: %i[show]
+  before_action :remember_page, only: %i[index show]
 
   def index
     @templates = Template.all
@@ -17,5 +18,15 @@ class TemplatesController < ApplicationController
 
   def set_pin
     @pin = Pin.find(params[:pin_id])
+  end
+
+  def remember_page
+    if params[:is_back]
+      session[:previous_pages].pop
+    else
+      session[:previous_pages] ||= []
+      session[:previous_pages] << url_for(params.to_unsafe_h) if request.get?
+      session[:previous_pages]
+    end
   end
 end
