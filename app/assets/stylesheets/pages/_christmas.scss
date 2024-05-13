@@ -5,7 +5,8 @@
 .christmas-bg {
   width: 100vw;
   height: 100vh;
-  background-image: url("christmas.webp");
+  background-image: url("merrychristmas.jpg");
+  background-size: cover;
   button {
     background-color: #FFD952;
     border: none;
@@ -39,7 +40,7 @@
   width: 260px;
   height: 260px;
   border-radius: 8px;
-  background-color: cornflowerblue;
+  background-color: rgba(8, 79, 9, 0.556);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -48,6 +49,6 @@
 .sticker {
   font-size: 120px;
   position: absolute;
-  left: 62%;
+  margin-left: -55%;
   top: 42%;
 }
