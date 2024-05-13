@@ -44,6 +44,7 @@ export default class extends Controller {
     //this.textInputTarget.appendChild(text);
 
     this.buttonTarget.classList.remove("d-none")
+  }
 
   savePin() {
     const htmlContent = this.pageTarget.outerHTML;
