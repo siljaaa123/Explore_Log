@@ -1,5 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
-import mapboxgl from 'mapbox-gl' // Don't forget this!
+import mapboxgl from 'mapbox-gl'
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 
 
@@ -35,9 +35,16 @@ export default class extends Controller {
 
       this.#addMarkersToMap()
       this.#fitMapToMarkers()
+      this.#addRouteBetweenMarkers()
+
     }
     this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl }))
+
+
+    if (!Array.isArray(this.markersValue)) {
+      this.markersValue = Object.values(this.markersValue);
+    }
 
     }
 
@@ -61,5 +68,50 @@ export default class extends Controller {
     const bounds = new mapboxgl.LngLatBounds()
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
+  }
+
+  #addRouteBetweenMarkers() {
+    if (this.markersValue.length >= 2) {
+    let apiUrl = `https://api.mapbox.com/directions/v5/mapbox/driving/${this.markersValue[0].lng},${this.markersValue[0].lat}`;
+    for (let i = 1; i < this.markersValue.length; i++) {
+      apiUrl += `;${this.markersValue[i].lng},${this.markersValue[i].lat}`;
+    }
+    apiUrl += `?geometries=geojson&access_token=${this.apiKeyValue}`;
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+        const routes = data.routes;
+        console.log(data.routes)
+        routes.forEach((route, index) => {
+          const routeGeometry = route.geometry;
+          this.map.on("load", () => {
+            this.map.addLayer({
+              id: 'route',
+              type: 'line',
+              source: {
+                'type': 'geojson',
+                'data': {
+                  'type': 'Feature',
+                  'properties': {},
+                  'geometry': {
+                    'type': 'LineString',
+                    'coordinates': routeGeometry.coordinates
+                  },
+                }
+              },
+              layout: {
+                'line-join': 'round',
+                'line-cap': 'round'
+              },
+              paint: {
+                'line-color': '#FFD952',
+                'line-width': 4,
+                'line-opacity': 0.75
+              }
+            })
+          })
+        })
+      })
+    }
   }
 }

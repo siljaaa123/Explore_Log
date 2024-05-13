@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_09_121349) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_10_151233) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -59,7 +59,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_09_121349) do
   create_table "invitations", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "journey_id", null: false
-    t.boolean "accepted", default: false
+    t.boolean "accepted"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["journey_id"], name: "index_invitations_on_journey_id"
@@ -71,7 +71,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_09_121349) do
     t.string "location"
     t.date "start_date"
     t.date "end_date"
-    t.boolean "completed", default: false
+    t.boolean "completed"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -90,13 +90,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_09_121349) do
     t.index ["sticker_id"], name: "index_pin_stickers_on_sticker_id"
   end
 
-  create_table "pintemplates", force: :cascade do |t|
+  create_table "pin_templates", force: :cascade do |t|
     t.bigint "pin_id", null: false
     t.bigint "template_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["pin_id"], name: "index_pintemplates_on_pin_id"
-    t.index ["template_id"], name: "index_pintemplates_on_template_id"
+    t.text "html_content"
+    t.index ["pin_id"], name: "index_pin_templates_on_pin_id"
+    t.index ["template_id"], name: "index_pin_templates_on_template_id"
   end
 
   create_table "pins", force: :cascade do |t|
@@ -145,8 +146,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_09_121349) do
   add_foreign_key "journeys", "users"
   add_foreign_key "pin_stickers", "pins"
   add_foreign_key "pin_stickers", "stickers"
-  add_foreign_key "pintemplates", "pins"
-  add_foreign_key "pintemplates", "templates"
+  add_foreign_key "pin_templates", "pins"
+  add_foreign_key "pin_templates", "templates"
   add_foreign_key "pins", "journeys"
   add_foreign_key "templates", "pins"
 end
