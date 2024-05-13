@@ -1,0 +1,8 @@
+<h1>Video page</h1>
+
+<video controls autoplay>
+  <% @animation_frames.each do |frame| %>
+    <!-- Render each animation frame as a video -->
+    <source src="<%= frame[:url] %>" type="image/png"> <!-- Assuming frames are PNG images -->
+  <% end %>
+</video>

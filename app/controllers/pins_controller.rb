@@ -4,7 +4,7 @@ class PinsController < ApplicationController
   before_action :set_journey, only: %i[new create edit update]
 
   def index
-    @pins = @user.pins
+    @pins = @user.pins.order(:start_date)
   end
 
   def show
