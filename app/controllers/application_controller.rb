@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :remember_page, only: %i[index show]
+  # before_action :remember_page, only: %i[index show]
 
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
