@@ -1,11 +1,11 @@
-.card-floral {
+.card-ocean {
   font-size: 40px;
   font-family: $template-font;
 }
-.floral-bg {
+.ocean-bg {
   width: 100vw;
   height: 100vh;
-  background-image: url("floral.webp");
+  background-image: url("ocean.webp");
   background-size: cover;
   button {
     background-color: #FFD952;
@@ -23,7 +23,7 @@
     line-height: initial;
   }
 }
-.floral {
+.ocean {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -36,11 +36,11 @@
   object-fit: cover;
   object-position: 50% 50%;
 }
-.frame-floral {
+.frame-ocean {
   width: 260px;
   height: 260px;
   border-radius: 8px;
-  background-color: rgb(253, 253, 189);
+  background-color: rgb(71, 237, 226);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -52,5 +52,3 @@
   left: 62%;
   top: 42%;
 }
-
-

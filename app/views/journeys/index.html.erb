@@ -9,7 +9,9 @@
       </div>
       <div class="button">
         <%= link_to new_journey_path do %>
-          <button class ="btn">New trip</button>
+          <button class ="btn btn-new">
+            <i class="fa-solid fa-route"></i>
+          </button>
         <% end %>
       </div>
     </div>
@@ -24,7 +26,8 @@
               <%= text_field_tag :query,
                     params[:query],
                     class: "search-journey",
-                    placeholder: "Journey Name..."
+                    placeholder: "Journey Name...",
+                    autocomplete: "off"
                 %>
               <%= submit_tag "", name: "", class: "search-button"%>
           <% end %>

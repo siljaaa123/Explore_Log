@@ -2,6 +2,7 @@ class JourneysController < ApplicationController
   before_action :set_journey, only: %i[show edit update map destroy]
   before_action :set_user, only: %i[new create edit update index]
 
+
   def index
     @journeys = @user.journeys.order(start_date: :DESC)
     if params[:query].present?
@@ -62,7 +63,6 @@ class JourneysController < ApplicationController
         lng: @journey.longitude
       }
     end
-
   end
 
   private

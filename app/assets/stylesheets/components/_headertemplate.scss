@@ -1,0 +1,45 @@
+.container-header {
+  background-color: rgba(255, 255, 255, 0.5);
+  position: relative;
+  width: 100%;
+}
+
+.header-template {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  position: absolute;
+
+  p{
+    margin: 12px 0 12px 0;
+  }
+}
+
+.logo-template {
+  font-family: anton;
+  color: $gray;
+  font-size: 20px;
+
+  &:hover{
+    color: $yellow;
+  }
+
+}
+
+#logo-template{
+  text-decoration: none;
+  margin-left: 270px;
+}
+
+.back-template {
+  width: 2em;
+  top: 11px;
+  margin-left: 22px;
+}
+
+@media (max-width: 1800px) {
+  .container {
+    width: 320px;
+  }
+}

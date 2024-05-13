@@ -21,7 +21,6 @@ legend ~ div.form-check:first-of-type {
   transform: translateX(-50%);
 }
 .required{
-  padding-bottom: 2px;
   padding-top: 6px;
 }
 
@@ -49,4 +48,58 @@ legend ~ div.form-check:first-of-type {
 .picture {
   display: inline-block;
   vertical-align: middle;
+}
+
+.form-dates{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 320px;
+
+
+  .start{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 8px 4px 8px 0;
+
+    input{
+      width:156px;
+      text-indent: 8px;
+      border-radius: 8px;
+      border: solid 1.5px $border-color;
+      height: 40px;
+      margin: 0;
+      color: $gray;
+    }
+  }
+
+  .end{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 18px 0px 8px 4px;
+
+    input{
+      width:156px;
+      text-indent: 8px;
+      border-radius: 8px;
+      border: solid 1.5px $border-color;
+      height: 40px;
+      margin: 0;
+      color: $gray;
+    }
+
+    input::placeholder{
+      text-align: center;
+    }
+  }
+}
+
+
+
+@media (max-width: 1800px) {
+  .form-edit {
+    width: 320px;
+  }
 }

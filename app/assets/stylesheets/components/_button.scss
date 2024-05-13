@@ -58,5 +58,15 @@
 .buttons{
   display: flex;
   flex-direction: column;
-  
+
+}
+
+.btn-new{
+  font-family: $button-font;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.fa-route{
+  font-size: 24px;
 }

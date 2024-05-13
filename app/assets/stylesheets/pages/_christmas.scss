@@ -1,11 +1,11 @@
-.card-floral {
+.card-christmas {
   font-size: 40px;
   font-family: $template-font;
 }
-.floral-bg {
+.christmas-bg {
   width: 100vw;
   height: 100vh;
-  background-image: url("floral.webp");
+  background-image: url("merrychristmas.jpg");
   background-size: cover;
   button {
     background-color: #FFD952;
@@ -23,7 +23,7 @@
     line-height: initial;
   }
 }
-.floral {
+.christmas {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -36,11 +36,11 @@
   object-fit: cover;
   object-position: 50% 50%;
 }
-.frame-floral {
+.frame-christmas {
   width: 260px;
   height: 260px;
   border-radius: 8px;
-  background-color: rgb(253, 253, 189);
+  background-color: rgba(8, 79, 9, 0.556);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -49,8 +49,6 @@
 .sticker {
   font-size: 120px;
   position: absolute;
-  left: 62%;
+  margin-left: -55%;
   top: 42%;
 }
-
-
