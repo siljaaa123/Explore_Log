@@ -9,6 +9,8 @@ class TemplatesController < ApplicationController
     case params[:id]
     when 'floral'
       render 'floral'
+    when 'blank'
+      render 'blank'
     when 'christmas'
       render 'christmas'
     when 'roadtrip'

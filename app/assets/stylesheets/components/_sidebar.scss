@@ -1,0 +1,60 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+  height: 100vh;
+  background-color: #FFD952;
+  position: absolute;
+  right: 0;
+}
+
+.sidebar-toggle {
+  position: absolute;
+  right: 0;
+  z-index: 50;
+  width: 20vw;
+}
+.draggable {
+  touch-action: none;
+  user-select: none;
+}
+.resizable {
+  box-sizing: border-box;
+  touch-action: none;
+  user-select: none;
+}
+#rotate-area {
+  height: 100%;
+  padding: 1rem;
+  overflow: hidden;
+  touch-action: none;
+}
+.canvas {
+  width: 100vw;
+  height: 100vh;
+}
+.blank {
+  width: 100vw;
+  height: 100vh;
+  button {
+    background-color: #FFD952;
+    border: none;
+    width: 25%;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  textarea, input, button {
+    border-radius: 8px;
+    color: black;
+  }
+  textarea {
+    width: 80%;
+    font-size: initial;
+    line-height: initial;
+  }
+  .textContainer {
+    width: fit-content;
+    border: 1px solid black;
+    font-size-adjust: 0.5;
+  }
+
+}

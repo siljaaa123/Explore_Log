@@ -1,8 +1,5 @@
 <%= render "shared/header" %>
 <div>
-  <div class="card-body">
-    <p>BLANK</p>
-  </div>
   <% @templates.each do |template| %>
     <%= link_to "templates/#{template.name}" do %>
       <div class="card-body">
