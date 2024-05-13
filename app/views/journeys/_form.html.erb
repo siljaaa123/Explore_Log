@@ -2,7 +2,7 @@
 
 <%= render "shared/header" %>
 <%= simple_form_for(@journey) do |f| %>
-  <%= f.input :name %>
+  <%= f.input :name, input_html: {autocomplete: 'off'} %>
   <%= f.label :location %>
   <%= f.input :location, as: :hidden,
               input_html: { class: "journey_location",

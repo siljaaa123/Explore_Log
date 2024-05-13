@@ -1,7 +1,7 @@
 class JourneysController < ApplicationController
   before_action :set_journey, only: %i[show edit update map destroy]
   before_action :set_user, only: %i[new create edit update index]
-  before_action :remember_page, only: %i[index show]
+
 
   def index
     @journeys = @user.journeys.order(start_date: :DESC)
@@ -63,7 +63,6 @@ class JourneysController < ApplicationController
         lng: @journey.longitude
       }
     end
-
   end
 
   private
@@ -78,15 +77,5 @@ class JourneysController < ApplicationController
 
   def journey_params
     params.require(:journey).permit(:description, :user_id, :name, :location, :completed, :start_date, :end_date, :cover_photo )
-  end
-
-  def remember_page
-    if params[:is_back]
-      session[:previous_pages].pop
-    else
-      session[:previous_pages] ||= []
-      session[:previous_pages] << url_for(params.to_unsafe_h) if request.get?
-      session[:previous_pages]
-    end
   end
 end

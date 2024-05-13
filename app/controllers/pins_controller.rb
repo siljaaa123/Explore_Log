@@ -2,7 +2,6 @@ class PinsController < ApplicationController
   before_action :set_pin, only: %i[show edit update]
   before_action :set_user, only: %i[new create edit update]
   before_action :set_journey, only: %i[new create edit update]
-  before_action :remember_page, only: %i[index show]
 
   def index
     @pins = @user.pins
@@ -59,15 +58,5 @@ class PinsController < ApplicationController
 
   def pin_params
     params.require(:pin).permit(:journey_id, :user_id, :date, :location)
-  end
-
-  def remember_page
-    if params[:is_back]
-      session[:previous_pages].pop
-    else
-      session[:previous_pages] ||= []
-      session[:previous_pages] << url_for(params.to_unsafe_h) if request.get?
-      session[:previous_pages]
-    end
   end
 end
