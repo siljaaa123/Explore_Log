@@ -1,2 +1,7 @@
-<h1>Pins#show</h1>
-<p>Find me in app/views/pins/show.html.erb</p>
+<% if @template_content.present? %>
+  <div class="template-content">
+    <%= raw @template_content %>
+  </div>
+<% else %>
+  <p>No template content available for this pin.</p>
+<% end %>

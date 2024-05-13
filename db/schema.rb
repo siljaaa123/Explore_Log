@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_09_121349) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_10_151233) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -92,9 +92,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_09_121349) do
 
   create_table "pin_templates", force: :cascade do |t|
     t.bigint "pin_id", null: false
-    t.bigint "template_id", null: false
+    t.bigint "template_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "html_content"
     t.index ["pin_id"], name: "index_pin_templates_on_pin_id"
     t.index ["template_id"], name: "index_pin_templates_on_template_id"
   end
@@ -118,10 +119,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_09_121349) do
 
   create_table "templates", force: :cascade do |t|
     t.string "name"
-    t.bigint "pin_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["pin_id"], name: "index_templates_on_pin_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -148,5 +147,4 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_09_121349) do
   add_foreign_key "pin_templates", "pins"
   add_foreign_key "pin_templates", "templates"
   add_foreign_key "pins", "journeys"
-  add_foreign_key "templates", "pins"
 end

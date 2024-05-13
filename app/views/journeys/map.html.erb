@@ -11,7 +11,8 @@
     data-journey-location="<%= @journey_location.to_json %>">
 <% end %>
     <%= link_to :back do  %>
-      <%= image_tag "chevron-circle-left.svg", class: 'back-image', style: 'width: 40px; height: 40px; position: absolute; top: 11px; left: 10px; z-index: 9999;' %>
+      <i class="fas fa-chevron-circle-left"></i>
+      <%# <%= image_tag "chevron-circle-left.svg", class: 'back-image', style: 'width: 40px; height: 40px; position: absolute; top: 11px; left: 10px; z-index: 9999;' %>
     <% end %>
     <%= link_to new_journey_pin_path(@journey) do %>
       <button class="small-btn-pin">New pin</button>

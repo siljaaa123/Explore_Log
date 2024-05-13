@@ -8,6 +8,7 @@ class PinsController < ApplicationController
   end
 
   def show
+    @template_content = PinTemplate.find_by(pin: @pin)&.html_content
   end
 
   def new

@@ -28,7 +28,6 @@ class JourneysController < ApplicationController
     end
   end
 
-
   def edit
   end
 

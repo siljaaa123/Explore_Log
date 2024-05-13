@@ -24,3 +24,29 @@ legend ~ div.form-check:first-of-type {
   padding-bottom: 2px;
   padding-top: 6px;
 }
+
+.file-input-label i {
+  margin-right: 5px; /* Adjust spacing between icon and text */
+}
+
+/* Optional: Hide the file input visually */
+.hidden-input {
+  position: absolute;
+  left: -9999px;
+}
+
+#music {
+  margin-left: 21px;
+}
+
+#file-name {
+  display: inline-block; /* Display the file name inline with other elements */
+  margin-left: 10px; /* Add some space between the file input and the file name */
+  font-size: 14px; /* Adjust font size as needed */
+  color: #333; /* Set text color */
+}
+
+.picture {
+  display: inline-block;
+  vertical-align: middle;
+}
