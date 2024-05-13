@@ -13,7 +13,6 @@ class TemplatesController < ApplicationController
     end
   end
 
-
   private
 
   def set_pin
