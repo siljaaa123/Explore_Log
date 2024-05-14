@@ -65,18 +65,71 @@
   text-align: center;
   margin-bottom: 1rem;
   transition: transform 0.3s ease;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100px;
+
   a {
     text-decoration: none;
     color: black;
+    width: 100%; /* Ensure link covers the entire card body */
+    height: 100%; /* Ensure link covers the entire card body */
+    display: flex; /* Use flexbox to center the text */
+    justify-content: center;
+    align-items: center;
+    font-family: $button-font;
+    letter-spacing: 1px;
+    font-weight: bold;
+    color: white;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke: 0.7px black;
+    font-size: 1.8rem;
   }
   &:hover {
     transform: translateY(-5px) rotateX(2deg) rotateY(2deg);
   }
+
 }
 
 .card{
   margin-bottom: 24px;
 }
+
+.background-christmas {
+  background-image: image-url('merrychristmas.jpeg');
+  background-position: bottom;
+
+}
+
+.background-family {
+  background-image: image-url('family.jpeg');
+  background-position: center;
+}
+
+
+.background-floral {
+  background-image: image-url('floral.webp');
+  background-position: bottom;
+}
+
+.background-roadtrip {
+  background-image: image-url('roadtrip.jpg');
+}
+
+.background-ocean {
+  background-image: image-url('ocean.webp');
+}
+
+.background-vintage {
+  background-image: image-url('vintage.jpeg');
+}
+
+.background-love {
+  background-image: image-url('love.webp');
+}
+
 
 
 
