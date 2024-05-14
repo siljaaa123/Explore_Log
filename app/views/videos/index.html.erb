@@ -1,8 +1,4 @@
-<h1>Video page</h1>
-
-<video controls autoplay>
-  <% @animation_frames.each do |frame| %>
-    <!-- Render each animation frame as a video -->
-    <source src="<%= frame[:url] %>" type="image/png"> <!-- Assuming frames are PNG images -->
-  <% end %>
-</video>
+<%= render "shared/header" %>
+<div class="container mt-3">
+  <%= video_tag url_for(@movie), size: "300x200", controls: true %>
+</div>

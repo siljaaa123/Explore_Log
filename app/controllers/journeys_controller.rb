@@ -2,7 +2,6 @@ class JourneysController < ApplicationController
   before_action :set_journey, only: %i[show edit update map destroy]
   before_action :set_user, only: %i[new create edit update index]
 
-
   def index
     @journeys = @user.journeys.order(start_date: :DESC)
     if params[:query].present?
@@ -76,6 +75,6 @@ class JourneysController < ApplicationController
   end
 
   def journey_params
-    params.require(:journey).permit(:description, :user_id, :name, :location, :completed, :start_date, :end_date, :cover_photo)
+    params.require(:journey).permit(:description, :user_id, :name, :location, :completed, :start_date, :end_date, :cover_photo, :video)
   end
 end

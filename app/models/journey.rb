@@ -2,7 +2,7 @@ class Journey < ApplicationRecord
   belongs_to :user
   has_many :pins
   has_one_attached :cover_photo
-  has_one :video
+  has_one_attached :video
 
   validates :location, presence: true
   validates :name, presence: true

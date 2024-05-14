@@ -2,6 +2,8 @@ class PinsController < ApplicationController
   before_action :set_pin, only: %i[show edit update]
   before_action :set_user, only: %i[new create edit update]
   before_action :set_journey, only: %i[new create edit update]
+  skip_before_action :authenticate_user!, only: %i[show]
+
 
   def index
     @pins = @user.pins.order(:start_date)

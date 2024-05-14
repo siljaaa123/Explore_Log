@@ -37,13 +37,7 @@
       <i class="fa-solid fa-music"></i>
       <%= f.file_field :song, class: "hidden-input" %>
     <% end %>
-    <% if @journey.persisted? %>
-      <div class="card-map mt-4" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('map.jpg');">
-        <%= link_to map_journey_path(@journey), class: "edit map-edit" do %>
-          <i class="fa-regular fa-pen-to-square"></i>
-        <% end %>
-      </div>
-    <% end %>
+    
     <%# <%= f.submit "✔️", class: "large", id: "submit-btn" %>
     <%= button_tag( class: "large", id: "submit-btn" ) do  %>
       <i class="fa-solid fa-check"></i>

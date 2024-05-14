@@ -24,7 +24,7 @@ export default class extends Controller {
         container: this.element,
         style: "mapbox://styles/mapbox/satellite-streets-v12",
         center: [journeyLocation.lng, journeyLocation.lat],
-        zoom: 10
+        zoom: 4
       })
 
     } else {
@@ -69,6 +69,7 @@ export default class extends Controller {
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
   }
+
 
   #addRouteBetweenMarkers() {
     if (this.markersValue.length >= 2) {
