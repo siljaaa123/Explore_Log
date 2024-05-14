@@ -105,12 +105,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_13_190832) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "elements", "pins"
-  add_foreign_key "invitations", "journeys"
-  add_foreign_key "invitations", "users"
   add_foreign_key "journeys", "users"
-  add_foreign_key "pin_stickers", "pins"
-  add_foreign_key "pin_stickers", "stickers"
   add_foreign_key "pin_templates", "pins"
   add_foreign_key "pin_templates", "templates"
   add_foreign_key "pins", "journeys"
