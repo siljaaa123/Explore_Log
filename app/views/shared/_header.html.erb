@@ -1,5 +1,7 @@
 <div class="header">
-  <%= link_to :back do %>
+
+
+  <%= link_to request.referer do %>
     <%= image_tag "back.png", class: 'back-image', style: 'width: 22px; height: 22px;' %>
   <% end %>
   <%= link_to journeys_path, id: 'logo' do %>

@@ -1,5 +1,12 @@
 <%= link_to pin_path(pin), class: "text-decoration-none" do %>
-  <div>
+  <%# <div> %>
+    <%# <% if @template_content.present? %>
+      <%# <div class="template-content-pin"> %>
+        <%# <%= raw @template_content %>
+      <%# </div> %>
+    <%# <% else %>
+      <%# <p>No template content available for this pin.</p> %>
+    <%# <% end %>
     <p><%= pin.location %></p>
     <p><%= pin.date.strftime('%b %d, %Y') %></p>
   </div>
