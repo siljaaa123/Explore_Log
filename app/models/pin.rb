@@ -4,6 +4,7 @@ class Pin < ApplicationRecord
   has_and_belongs_to_many :stickers, join_table: :pin_stickers
   has_and_belongs_to_many :templates, join_table: :pin_templates
   has_many :pin_templates
+  # has_one :video, through: :journey
 
   validates :location, presence: true
   validates :date, presence: true

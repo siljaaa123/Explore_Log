@@ -10,16 +10,4 @@ class ApplicationController < ActionController::Base
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update, keys: [:username])
   end
-
-  private
-
-  def remember_page
-    if params[:is_back]
-      session[:previous_pages].pop
-    else
-      session[:previous_pages] ||= []
-      session[:previous_pages] << url_for(params.to_unsafe_h) if request.get?
-      session[:previous_pages]
-    end
-  end
 end
