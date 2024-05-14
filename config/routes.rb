@@ -21,8 +21,6 @@ Rails.application.routes.draw do
   end
 
   resources :pins, except: %i[new create update edit] do
-    resources :elements
-    resources :stickers, only: %i[index show]
     resources :templates, only: %i[index show]
   end
   resources :users, only: %i[show]

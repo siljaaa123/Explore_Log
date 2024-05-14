@@ -1,6 +1,6 @@
 
 
-<div class="floral-bg" data-controller='templates' data-templates-target="page" data-pin-id="<%= @pin.id %>">
+<div class="floral-bg" data-controller='templates' data-templates-target="page" data-pin-id="<%= @pin.id %>" data-action="change->templates#handleChange">
 <%= render "shared/headertemplate" %>
   <br>
   <br>
@@ -34,8 +34,6 @@
     <br>
     <br>
     <br>
-
-      <button class="btn large" id="save" data-action="click->templates#savePin"><i class="fa-solid fa-floppy-disk"></i></button>
-
+      <button class="btn large" id="save" data-action="click->templates#savePin" data-action="click->templates#handleTextChange"><i class="fa-solid fa-floppy-disk"></i></button>
   </div>
 </div>

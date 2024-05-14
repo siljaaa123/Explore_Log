@@ -52,9 +52,31 @@
     line-height: initial;
   }
   .textContainer {
-    width: fit-content;
     border: 1px solid black;
-    font-size-adjust: 0.5;
+    width: fit-content;
+    p {
+      font-size: 16px;
+    }
   }
+  .canvas {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+//   .resizable-text {
+//     min-height: 30px; /* Set minimum height */
+//     border: 1px solid #ccc; /* Add border for better visibility */
+//     padding: 5px; /* Add padding for better appearance */
+//     resize: both; /* Allow resizing horizontally and vertically */
+//     overflow: auto; /* Enable scrolling if the content exceeds the container */
+// }
 
 }

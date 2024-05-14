@@ -1,5 +1,6 @@
 class TemplatesController < ApplicationController
   before_action :set_pin, only: %i[show]
+  before_action :set_journey, only: %i[show]
 
 
   def index
@@ -33,5 +34,9 @@ class TemplatesController < ApplicationController
 
   def set_pin
     @pin = Pin.find(params[:pin_id])
+  end
+
+  def set_journey
+    @pin = Journey.find(params[:journey_id])
   end
 end
