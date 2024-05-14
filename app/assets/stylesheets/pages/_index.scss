@@ -8,7 +8,10 @@ body{
 .container{
   display:flex;
   flex-direction: column;
+  padding-right: 20px;
+  padding-left: 20px;
 }
+
 
 .top{
   display: flex;
@@ -16,7 +19,7 @@ body{
   align-items: center;
   width: 100%;
   justify-content: space-between;
-  margin: 48px 0 24px 0;
+  margin: 13px 0 24px 0;
 
   .profile-pic{
     width: 50px;
@@ -71,7 +74,8 @@ body{
 
 @media screen and (max-width:1800px) {
   .journeys-body {
-    width: 390px;
+    width: 360px;
+
   }
 }
 
