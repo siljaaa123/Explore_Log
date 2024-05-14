@@ -7,6 +7,7 @@
   height: 100vh;
   background-image: url("floral.webp");
   background-size: cover;
+  background-repeat: none;
   button {
     background-color: #FFD952;
     border: none;
@@ -21,6 +22,7 @@
     width: 80%;
     font-size: initial;
     line-height: initial;
+
   }
 }
 .floral {
@@ -35,6 +37,7 @@
   border-radius: 8px;
   object-fit: cover;
   object-position: 50% 50%;
+
 }
 .frame-floral {
   width: 260px;
@@ -54,3 +57,7 @@
 }
 
 
+#save{
+  position: absolute;
+  bottom: 80px;
+}
