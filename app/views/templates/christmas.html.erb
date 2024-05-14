@@ -1,7 +1,5 @@
-
-
-<div class="christmas-bg" data-controller='templates' data-templates-target="page" data-pin-id="<%= @pin.id %>">
-<%= render "shared/headertemplate" %>
+<div class="christmas-bg" data-controller='templates' data-templates-target="page" data-pin-id="<%= @pin.id %>" data-action="change->templates#handleChange">
+  <%= render "shared/headertemplate" %>
   <br>
   <br>
   <br>
@@ -25,7 +23,6 @@
       <textarea id="text-input" placeholder="Enter text here" data-templates-target="textInput"></textarea>
     </div>
     <button data-templates-target="button" data-action="click->templates#handleTextChange">Add</button>
-    <%# <button data-action="click->templates#changeText" data-templates-target="buttonEdit">Edit</button> %>
     <br>
     <br>
     <br>
@@ -34,8 +31,6 @@
     <br>
     <br>
     <br>
-
-      <button class="btn large" data-action="click->templates#savePin">Save</button>
-
+      <button class="btn large" data-action="click->templates#savePin" data-action="click->templates#handleTextChange">Save</button>
   </div>
 </div>

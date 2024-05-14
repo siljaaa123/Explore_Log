@@ -3,11 +3,18 @@ import interact from 'interactjs'
 
 export default class extends Controller {
 
-  static targets = ["sidebar", "text", "photo", "canvas", "uploadedText"]
+  static targets = ["sidebar", "text", "photo", "canvas", "uploadedText", "richTextEditor"]
+  history = [];
 
   connect() {
     this.setCanvasBackgroundColor();
     this.initializeGesturable();
+  }
+  undoLastAction() {
+    if (this.history.length > 0) {
+      const lastAction = this.history.pop();
+      lastAction.undo();
+    }
   }
   toggleSideBar() {
     this.sidebarTarget.classList.toggle('d-none');
@@ -21,19 +28,20 @@ export default class extends Controller {
     this.canvasTarget.style.backgroundColor = color;
   }
   addTextInput() {
-
     const textInput = document.createElement("input")
+    textInput.setAttribute("data-templates-target", "textInput");
     textInput.setAttribute("type", "text");
     textInput.setAttribute("placeholder", "Enter text here");
-    textInput.setAttribute("data-templates-target", "textInput");
-    textInput.classList.add("draggable");
-    textInput.classList.add("resizable");
-    textInput.classList.add("scale-element");
-    const scaleElement = textInput
+    textInput.classList.add("resizable-text");
 
     const textContainer = document.createElement("div");
     textContainer.setAttribute("data-templates-target", "textContainer");
+    textContainer.classList.add("draggable");
+    textContainer.classList.add("resizable");
+    textContainer.classList.add("scale-element");
+    textContainer.classList.add("textContainer");
     textContainer.appendChild(textInput);
+    const scaleElement = textContainer
 
     const addButton = document.createElement("button");
     addButton.textContent = "Add";
@@ -41,9 +49,19 @@ export default class extends Controller {
     addButton.setAttribute("data-action", "click->templates#handleTextChange");
 
     this.canvasTarget.appendChild(textContainer);
-    this.canvasTarget.appendChild(addButton);
+    textContainer.appendChild(addButton);
 
-    this.initializeInteract(textInput);
+    this.addToHistory({
+      undo: () => {
+        textInput.remove();
+        textContainer.remove();
+        addButton.remove();
+      }
+    });
+
+    this.initializeInteract(textContainer);
+    this.initializeGesturable();
+
   }
   addPhotoInput() {
     const photoInput = document.createElement("input");
@@ -66,10 +84,21 @@ export default class extends Controller {
     this.canvasTarget.appendChild(photoInput);
     this.canvasTarget.appendChild(uploadedPhoto);
 
+    this.addToHistory({
+      undo: () => {
+        photoInput.remove();
+      }
+    });
+
     this.initializeInteract(uploadedPhoto);
+    this.initializeGesturable();
+  }
+  addToHistory(action) {
+    this.history.push(action);
   }
   initializeInteract(element) {
     let position = { x: 0, y: 0 }
+    const controller = this;
     interact(element)
       .draggable({
         listeners: {
@@ -99,7 +128,15 @@ export default class extends Controller {
               transform: `translate(${x}px, ${y}px)`
             })
             Object.assign(event.target.dataset, { x, y })
-          }
+
+            const initialWidth = event.deltaRect.right - event.deltaRect.left
+            const adjWidth = event.rect.width
+            const widthDifference = (adjWidth - 100)
+            console.log(widthDifference)
+            const fontSize = parseInt(getComputedStyle(element.querySelector("p")).getPropertyValue('font-size'), 10) + widthDifference;
+            element.querySelector("p").style.fontSize = fontSize + 'px';
+          },
+
         }
       })
   }
@@ -117,6 +154,10 @@ export default class extends Controller {
             let currentScale = event.scale * angleScale.scale;
             scaleElement.style.transform =
               'rotate(' + currentAngle + 'deg)' + 'scale(' + currentScale + ')';
+          },
+          end (event) {
+            angleScale.angle = angleScale.angle + event.angle
+            angleScale.scale = angleScale.scale * event.scale
           },
         }
       });

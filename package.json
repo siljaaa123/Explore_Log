@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "@rails/actiontext": "^7.1.3-2",
-    "interactjs": "^1.10.27",
-    "trix": "^2.1.1"
-  }
-}

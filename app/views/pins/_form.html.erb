@@ -1,4 +1,11 @@
-<%= render "shared/header" %>
+<div class="header">
+  <%= link_to journey_path(@journey) do %>
+    <%= image_tag "back.png", class: 'back-image', style: 'width: 22px; height: 22px;' %>
+  <% end %>
+  <%= link_to journeys_path, id: 'logo' do %>
+    <p class="logo">EXPLORELOG</p>
+  <% end %>
+</div>
 <br>
 <div class="form-card">
 <br>

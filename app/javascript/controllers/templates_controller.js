@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
 
-  static targets = ["textInput", "photoInput", "uploadedPhoto", "textContainer", "button", "page", "text"]
+  static targets = ["textInput", "photoInput", "uploadedPhoto", "textContainer", "button", "page", "text", "saveButton"]
 
   connect() {
   }
@@ -21,10 +21,9 @@ export default class extends Controller {
   handleTextChange() {
     const text = this.textInputTarget.value;
     this.textInputTarget.classList.add("d-none")
-    this.textContainerTarget.insertAdjacentHTML("beforeend", "<p data-action='click->templates#changeText' data-blank-target='uploadedText' class='draggable resizable scale-element'>" + text + "</p>")
+    this.textContainerTarget.insertAdjacentHTML("beforeend", "<p data-action='click->templates#changeText' data-blank-target='uploadedText'>" + text + "</p>")
     this.buttonTarget.classList.add("d-none")
-  }
-
+    }
 
   changeText(event) {
     this.textInputTarget.classList.remove("d-none")
@@ -34,6 +33,7 @@ export default class extends Controller {
   }
 
   savePin() {
+    this.saveButtonTarget.classList.add('d-none');
     const htmlContent = this.pageTarget.outerHTML;
     const pinId = this.element.dataset.pinId;
     const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
@@ -46,5 +46,9 @@ export default class extends Controller {
     .then(data => {
       window.location.href = `/pins/${pinId}`;
     })
+  }
+
+  handleChange() {
+    this.saveButtonTarget.classList.remove('d-none');
   }
 }
