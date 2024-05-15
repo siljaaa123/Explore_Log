@@ -32,6 +32,7 @@ export default class extends Controller {
     textInput.setAttribute("data-templates-target", "textInput");
     textInput.setAttribute("type", "text");
     textInput.setAttribute("placeholder", "Enter text here");
+    textInput.setAttribute("data-action", "blur->templates#handleTextChange");
     textInput.classList.add("resizable-text");
 
     const textContainer = document.createElement("div");
@@ -43,13 +44,12 @@ export default class extends Controller {
     textContainer.appendChild(textInput);
     const scaleElement = textContainer
 
-    const addButton = document.createElement("button");
-    addButton.textContent = "Add";
-    addButton.setAttribute("data-templates-target", "button");
-    addButton.setAttribute("data-action", "click->templates#handleTextChange");
+    // const addButton = document.createElement("button");
+    // addButton.textContent = "Add";
+    // addButton.setAttribute("data-templates-target", "button");
+    // addButton.setAttribute("data-action", "click->templates#handleTextChange");
 
     this.canvasTarget.appendChild(textContainer);
-    textContainer.appendChild(addButton);
 
     this.addToHistory({
       undo: () => {
@@ -69,6 +69,13 @@ export default class extends Controller {
     photoInput.setAttribute("accept", "image/*");
     photoInput.setAttribute("data-action", "change->templates#handlePhotoChange");
     photoInput.setAttribute("data-templates-target", "photoInput");
+    // photoInput.setAttribute("style", "display: none");
+    photoInput.classList.add("photo-button")
+
+    // const photoLabel = document.createElement("label")
+    // photoLabel.setAttribute("for", "photo-input")
+    // photoLabel.setAttribute("data-templates-target", "icon")
+    // photoLabel.innerHTML = '<i class="fa-solid fa-camera"></i>'
 
     const uploadedPhoto = document.createElement("img");
     uploadedPhoto.setAttribute("id", "uploaded-photo");
@@ -83,6 +90,7 @@ export default class extends Controller {
 
     this.canvasTarget.appendChild(photoInput);
     this.canvasTarget.appendChild(uploadedPhoto);
+    // this.canvasTarget.appendChild(photoLabel)
 
     this.addToHistory({
       undo: () => {
