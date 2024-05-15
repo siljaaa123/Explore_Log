@@ -4,9 +4,6 @@ export default class extends Controller {
 
   static targets = ["textInput", "photoInput", "uploadedPhoto", "textContainer", "icon", "page", "text", "saveButton"]
 
-  connect() {
-  }
-
   handlePhotoChange(event) {
     const file = event.target.files[0];
     const reader = new FileReader();
