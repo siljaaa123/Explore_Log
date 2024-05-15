@@ -54,12 +54,12 @@
     padding: 0;
   }
 }
-.card-body {
+.card-templates {
   padding: 20px;
   border: 1px solid lightgray;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 80vw;
+  width: 95vw;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -70,6 +70,42 @@
   background-position: center;
   background-repeat: no-repeat;
   height: 100px;
+  a {
+    text-decoration: none;
+    color: black;
+    width: 100%; /* Ensure link covers the entire card body */
+    height: 100%; /* Ensure link covers the entire card body */
+    display: flex; /* Use flexbox to center the text */
+    justify-content: center;
+    align-items: center;
+    font-family: $button-font;
+    letter-spacing: 1px;
+    font-weight: bold;
+    color: white;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke: 0.7px black;
+    font-size: 1.8rem;
+  }
+  &:hover {
+    transform: translateY(-5px) rotateX(2deg) rotateY(2deg);
+  }
+}
+.card-body {
+  padding: 20px;
+  border: 1px solid lightgray;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 95vw;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: fit-content;
 
   a {
     text-decoration: none;

@@ -1,28 +1,30 @@
 <%= render "shared/headertemplate" %>
-<div class="ocean-bg" data-controller='templates' data-templates-target="page" data-pin-id="<%= @pin.id %>" data-action="change->templates#handleChange">
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <div class="ocean">
-    <div class="frame-ocean text-center" data-templates-target="frame">
-      <img id="uploaded-photo" src="#" alt="Uploaded Photo" style="display: none;" data-templates-target="uploadedPhoto">
-      <input type="file" id="photo-input" accept="image/*" data-templates-target="photoInput" data-action="change->templates#handlePhotoChange" style="display: none;">
-      <label for="photo-input" data-templates-target="icon">
-        <i class="fa-solid fa-camera"></i>
-      </label>
-    </div>
-    <p class="sticker">🐙</p>
+<div class="container">
+  <div class="ocean-bg" data-controller='templates' data-templates-target="page" data-pin-id="<%= @pin.id %>" data-action="change->templates#handleChange">
     <br>
     <br>
-    <div class="card-body card-ocean" data-templates-target="textContainer">
-      <textarea id="text-input" placeholder="Enter text here" data-templates-target="textInput" data-action="blur->templates#handleTextChange"></textarea>
-    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="ocean">
+      <div class="frame-ocean text-center" data-templates-target="frame">
+        <img id="uploaded-photo" src="#" alt="Uploaded Photo" style="display: none;" data-templates-target="uploadedPhoto">
+        <input type="file" id="photo-input" accept="image/*" data-templates-target="photoInput" data-action="change->templates#handlePhotoChange" style="display: none;">
+        <label for="photo-input" data-templates-target="icon">
+          <i class="fa-solid fa-camera"></i>
+        </label>
+      </div>
+      <p class="sticker">🐙</p>
+      <br>
+      <br>
+      <div class="card-body card-ocean" data-templates-target="textContainer">
+        <textarea id="text-input" placeholder="Enter text here" data-templates-target="textInput" data-action="blur->templates#handleTextChange"></textarea>
+      </div>
 
-      <button class="btn large" id="save" data-action="click->templates#savePin" data-action="click->templates#handleTextChange"><i class="fa-solid fa-floppy-disk"></i></button>
+        <button class="btn large" id="save" data-action="click->templates#savePin" data-action="click->templates#handleTextChange"><i class="fa-solid fa-floppy-disk"></i></button>
+    </div>
   </div>
 </div>
