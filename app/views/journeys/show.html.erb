@@ -48,8 +48,29 @@
       <%= link_to journey_videos_path(@journey), class: "btn bottom" do %>
         <i class="fa-regular fa-circle-play"></i>
       <% end %>
-       <%= link_to (), class: "btn bottom" do %>
+       <%= link_to "#", class: "btn bottom", id: "copyURL",  data: { video_path: journey_videos_path(@journey) } do %>
         <i class="fa-solid fa-share-nodes"></i>
       <% end %>
     </div>
   </div>
+
+
+<script>
+  const copyBtn = document.getElementById('copyURL');
+  const baseURL = window.location.origin;
+
+
+  copyBtn.addEventListener('click', () => {
+    const videoPath = copyBtn.dataset.videoPath;
+    if (videoPath) {
+      const fullURL = baseURL + videoPath;
+      navigator.clipboard.writeText(fullURL).then(() => {
+        alert('Video link copied successfully!');
+      }).catch(() => {
+        alert('Error copying video link to clipboard');
+      });
+  } else {
+      alert('Video link is not available');
+  }
+  });
+</script>
