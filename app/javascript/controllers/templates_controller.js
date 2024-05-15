@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
 
-  static targets = ["textInput", "photoInput", "uploadedPhoto", "textContainer", "button", "page", "text", "saveButton"]
+  static targets = ["textInput", "photoInput", "uploadedPhoto", "textContainer", "icon", "page", "text", "saveButton"]
 
   connect() {
   }
@@ -22,30 +22,29 @@ export default class extends Controller {
     const text = this.textInputTarget.value;
     this.textInputTarget.classList.add("d-none")
     this.textContainerTarget.insertAdjacentHTML("beforeend", "<p data-action='click->templates#changeText' data-blank-target='uploadedText'>" + text + "</p>")
-    this.buttonTarget.classList.add("d-none")
     }
 
   changeText(event) {
     this.textInputTarget.classList.remove("d-none")
     this.textInputTarget.value = event.currentTarget.innerText
     event.currentTarget.remove()
-    this.buttonTarget.classList.remove("d-none")
   }
 
   savePin() {
     this.saveButtonTarget.classList.add('d-none');
+    this.iconTarget.classList.add('d-none')
     const htmlContent = this.pageTarget.outerHTML;
     const pinId = this.element.dataset.pinId;
     const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
     fetch('/save_template', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': token },
-      body: JSON.stringify({ pinId: pinId, htmlContent: htmlContent }),
-    })
-    .then(response => response.json())
-    .then(data => {
-      window.location.href = `/pins/${pinId}`;
-    })
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': token },
+        body: JSON.stringify({ pinId: pinId, htmlContent: htmlContent }),
+      })
+      .then(response => response.json())
+      .then(data => {
+       window.location.href = `/pins/${pinId}`;
+      })
   }
 
   handleChange() {

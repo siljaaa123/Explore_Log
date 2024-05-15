@@ -53,3 +53,5 @@ pin "stream", to: "https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/stre
 pin "tls", to: "https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/tls.js"
 pin "url", to: "https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/url.js"
 pin "util", to: "https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/util.js"
+pin "sweetalert2", to: "https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/dist/sweetalert2.all.js"
+pin "sweetalert2", to: "https://ga.jspm.io/npm:sweetalert2@11.7.2/dist/sweetalert2.all.js"

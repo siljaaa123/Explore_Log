@@ -10,10 +10,4 @@ class PinTemplatesController < ApplicationController
   rescue StandardError => e
     render json: { success: false, error: e.message }, status: :unprocessable_entity
   end
-
-  # private
-
-  # def pin_template_params
-  #   params.require(:element).permit(:pin_id, :html_content)
-  # end
 end
