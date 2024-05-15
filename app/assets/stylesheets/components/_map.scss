@@ -4,10 +4,15 @@
 }
 
 .mapboxgl-popup-content {
-  text-align: center;
-  font-family: "Open Sans", sans-serif;
+  background-color: #FFD952;
+  border-radius: 8px;
   p {
     color: black;
+    font-family: $button-font;
+    font-size: medium;
+    text-align: center;
+    justify-content: center;
+
   }
 
 }
