@@ -7,6 +7,7 @@ export default class extends Controller {
   }
 
   initSweetalert(event) {
+    console.log("SweetAlert triggered");
     event.preventDefault();
 
     Swal.fire({
@@ -16,11 +17,24 @@ export default class extends Controller {
       confirmButtonColor: "#FFD952",
       showCancelButton: true,
       cancelButtonText: `<i class="fa fa-thumbs-down"></i>`,
+      customClass: {
+        popup: 'custom-swal-popup',
+        header: 'custom-swal-header',
+        title: 'custom-swal-title',
+        icon: 'custom-swal-icon',
+        confirmButton: 'custom-swal-confirm-button',
+        cancelButton: 'custom-swal-cancel-button'
+      }
     }).then((action) => {
       if (action.isConfirmed) {
-        event.target[event.type]();
+        const link = event.target.closest('a');
+        if (link) {
+          window.location.href = link.href;
+        }
       }
+    }).catch((error) => {
+      console.error("Error:", error);
+      event.preventDefault();
     })
-    .catch(event.preventDefault())
   }
 }
