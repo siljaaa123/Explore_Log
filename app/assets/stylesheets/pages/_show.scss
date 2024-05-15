@@ -13,6 +13,30 @@ h1 {
 }
 
 
+.btntwo
+{ border-radius:6px;
+  color: black;
+  border: none;
+  //margin-left: 30px;
+  //margin-right: 30px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: $button-font;
+
+}
+.btnthree {
+  border-radius:6px;
+  color: black;
+  border: none;
+  //margin-left: 30px;
+  //margin-right: 30px;
+  // box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: $button-font;
+  display: flex;
+  justify-content: flex-start;
+
+
+}
+
 .gray-info {
   color: gray;
   display: flex;
@@ -73,12 +97,7 @@ img {
 
 }
 
-.buttons-edit{
-  width: 300px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
+
 
 #mapshow {
   height: 200px;
