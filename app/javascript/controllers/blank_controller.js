@@ -3,22 +3,25 @@ import interact from 'interactjs'
 
 export default class extends Controller {
 
-  static targets = ["sidebar", "text", "photo", "canvas", "uploadedText", "richTextEditor"]
+  static targets = ["sidebar", "text", "photo", "canvas", "uploadedText", "textInput", "photoInput", "uploadedPhoto", "textContainer", "icon", "page", "text", "saveButton"]
   history = [];
 
   connect() {
-    this.setCanvasBackgroundColor();
-    this.initializeGesturable();
+    this.setCanvasBackgroundColor()
+    this.userText = ""
   }
+
   undoLastAction() {
     if (this.history.length > 0) {
       const lastAction = this.history.pop();
       lastAction.undo();
     }
   }
+
   toggleSideBar() {
     this.sidebarTarget.classList.toggle('d-none');
   }
+
   onChangeColor(event) {
     const color = event.target.value;
     this.canvasTarget.style.backgroundColor = color;
@@ -27,27 +30,20 @@ export default class extends Controller {
     const color = this.colorPickerTarget.value;
     this.canvasTarget.style.backgroundColor = color;
   }
+
   addTextInput() {
     const textInput = document.createElement("input")
-    textInput.setAttribute("data-templates-target", "textInput");
+    textInput.setAttribute("data-blank-target", "textInput");
     textInput.setAttribute("type", "text");
     textInput.setAttribute("placeholder", "Enter text here");
-    textInput.setAttribute("data-action", "blur->templates#handleTextChange");
-    textInput.classList.add("resizable-text");
+    textInput.setAttribute("data-action", "blur->blank#handleTextChange");
 
     const textContainer = document.createElement("div");
-    textContainer.setAttribute("data-templates-target", "textContainer");
+    textContainer.setAttribute("data-blank-target", "textContainer");
     textContainer.classList.add("draggable");
     textContainer.classList.add("resizable");
-    textContainer.classList.add("scale-element");
     textContainer.classList.add("textContainer");
     textContainer.appendChild(textInput);
-    const scaleElement = textContainer
-
-    // const addButton = document.createElement("button");
-    // addButton.textContent = "Add";
-    // addButton.setAttribute("data-templates-target", "button");
-    // addButton.setAttribute("data-action", "click->templates#handleTextChange");
 
     this.canvasTarget.appendChild(textContainer);
 
@@ -55,14 +51,12 @@ export default class extends Controller {
       undo: () => {
         textInput.remove();
         textContainer.remove();
-        addButton.remove();
       }
     });
 
     this.initializeInteract(textContainer);
-    this.initializeGesturable();
-
   }
+
   addPhotoInput() {
     const photoInput = document.createElement("input");
     photoInput.setAttribute("type", "file");
@@ -84,14 +78,14 @@ export default class extends Controller {
     uploadedPhoto.setAttribute("alt", "Uploaded Photo");
     uploadedPhoto.classList.add("draggable");
     uploadedPhoto.classList.add("resizable");
-    uploadedPhoto.classList.add("scale-element");
     uploadedPhoto.style.display = "none";
-    uploadedPhoto.dataset.templatesTarget = "uploadedPhoto";
+    uploadedPhoto.dataset.blankTarget = "uploadedPhoto";
     const scaleElement = uploadedPhoto
 
     this.canvasTarget.appendChild(photoInput);
     this.canvasTarget.appendChild(uploadedPhoto);
     this.canvasTarget.appendChild(photoLabel)
+
 
     this.addToHistory({
       undo: () => {
@@ -100,11 +94,12 @@ export default class extends Controller {
     });
 
     this.initializeInteract(uploadedPhoto);
-    this.initializeGesturable();
   }
+
   addToHistory(action) {
     this.history.push(action);
   }
+
   initializeInteract(element) {
     let position = { x: 0, y: 0 }
     const controller = this;
@@ -141,7 +136,6 @@ export default class extends Controller {
             const initialWidth = event.deltaRect.right - event.deltaRect.left
             const adjWidth = event.rect.width
             const widthDifference = (adjWidth - 100)
-            console.log(widthDifference)
             const fontSize = parseInt(getComputedStyle(element.querySelector("p")).getPropertyValue('font-size'), 10) + widthDifference;
             element.querySelector("p").style.fontSize = fontSize + 'px';
           },
@@ -150,25 +144,48 @@ export default class extends Controller {
       })
   }
 
-  initializeGesturable() {
-    let angleScale = { angle: 0, scale: 1 };
-    interact('#gesture-area')
-      .gesturable({
-        listeners: {
-          start (event) {
-            angleScale.angle -= event.angle;
-          },
-          move (event) {
-            let currentAngle = event.angle + angleScale.angle;
-            let currentScale = event.scale * angleScale.scale;
-            scaleElement.style.transform =
-              'rotate(' + currentAngle + 'deg)' + 'scale(' + currentScale + ')';
-          },
-          end (event) {
-            angleScale.angle = angleScale.angle + event.angle
-            angleScale.scale = angleScale.scale * event.scale
-          },
-        }
-      });
+  handlePhotoChange(event) {
+    const file = event.target.files[0]
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      this.uploadedPhotoTarget.src = event.target.result;
+      this.uploadedPhotoTarget.style.display = "inline";
+    };
+    reader.readAsDataURL(file);
+    this.photoInputTarget.classList.add("d-none")
+  }
+
+  handleTextChange() {
+    this.userText = this.textInputTarget.value;
+    const textContainer = this.textInputTarget.parentNode
+    this.textInputTarget.remove()
+    textContainer.insertAdjacentHTML("beforeend", "<p data-action='click->blank#changeText' data-blank-target='uploadedText'>" + this.userText + "</p>")
+  }
+
+  // changeText(event) {
+  //   this.textInputTarget.classList.remove("d-none")
+  //   this.textInputTarget.value = event.currentTarget.innerText
+  //   event.currentTarget.remove()
+  // }
+
+  savePin() {
+    this.saveButtonTarget.classList.add('d-none');
+    this.iconTarget.classList.add('d-none')
+    const htmlContent = this.pageTarget.outerHTML;
+    const pinId = this.element.dataset.pinId;
+    const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+    fetch('/save_template', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': token },
+        body: JSON.stringify({ pinId: pinId, htmlContent: htmlContent }),
+      })
+      .then(response => response.json())
+      .then(data => {
+        window.location.href = `/pins/${pinId}`;
+      })
+  }
+
+  handleChange() {
+    this.saveButtonTarget.classList.remove('d-none');
   }
 }

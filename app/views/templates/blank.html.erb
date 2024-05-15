@@ -1,5 +1,5 @@
-<div data-controller="templates" class="blank" data-templates-target="page" data-pin-id="<%= @pin.id %>" id="gesture-area">
-  <%= render "shared/headertemplate" %>
+<%= render "shared/headertemplate" %>
+<div class="blank" data-templates-target="page" data-pin-id="<%= @pin.id %>" id="gesture-area">
   <div data-controller="blank">
     <div class="sidebar-toggle" data-action="click->blank#toggleSideBar">
       <button class="btn side"><i class="fa-solid fa-bars"></i></button>
@@ -16,7 +16,7 @@
       <br>
       <button class="btn side"><i class="fa-solid fa-rotate-left" data-action="click->blank#undoLastAction"></i></button>
       <br>
-      <button class="btn side" data-action="click->templates#savePin"><i class="fa-regular fa-circle-check"></i></button>
+      <button class="btn side" data-action="click->blank#savePin"><i class="fa-regular fa-circle-check"></i></button>
     </div>
     <div class="canvas" data-blank-target="canvas">
     </div>
