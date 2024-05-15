@@ -1,8 +1,13 @@
+require "open-uri"
 class VideosController < ApplicationController
   before_action :set_journey
 
   def index
-    generate_frames
+    @movie = @journey.video
+    unless @movie.attached?
+      generate_frames
+      @movie = @journey.video
+    end
   end
 
   def generate_frames
@@ -13,7 +18,7 @@ class VideosController < ApplicationController
     # Directory where the image files will be saved
     @map = Grover.new("https://www.explorelog.me/journeys/#{@journey.id}/map", format: 'A4')
     @animation_frames << @map.to_png
-    if @animation_frames.present?
+    if @animation_frames.any?
       # Create temporary files and perform further processing
       temp_dir = Rails.root.join('tmp', 'images', 'test')
       FileUtils.mkdir_p(temp_dir)
@@ -31,7 +36,9 @@ class VideosController < ApplicationController
     # Using system call to ffmpeg directly
     system("ffmpeg -framerate #{framerate} -i '#{input_pattern}' -vcodec libx264 -pix_fmt yuv420p -vf 'scale=1920:1080' '#{output_file}'")
     @movie = output_file.to_s
-
+    file = URI.open(@movie)
+    @journey.video.attach(io: file, filename: "output_movie.mp4", content_type: "video/webm")
+    @journey.save
   # ensure
     # Ensure temporary files are cleaned up
     # @temp_files.each { |file| FileUtils.rm_f if File.exist?(file) }
