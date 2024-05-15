@@ -29,15 +29,12 @@
       </div>
     </div>
     <%= f.input :description %>
-    <%= f.label :cover_photo, class: "btn mt-3" do %>
+    <%= f.label :cover_photo, class: "btn mt-3" id:"camera" do %>
       <i class="fa-solid fa-camera"></i>
       <%= f.file_field :cover_photo, class: "hidden-input" %>
     <% end %>
-    <%= f.label :song, class: "btn mt-3", id: "music" do %>
-      <i class="fa-solid fa-music"></i>
-      <%= f.file_field :song, class: "hidden-input" %>
-    <% end %>
-    
+
+
     <%# <%= f.submit "✔️", class: "large", id: "submit-btn" %>
     <%= button_tag( class: "large", id: "submit-btn" ) do  %>
       <i class="fa-solid fa-check"></i>
