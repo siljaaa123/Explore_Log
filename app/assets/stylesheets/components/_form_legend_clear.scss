@@ -96,6 +96,17 @@ legend ~ div.form-check:first-of-type {
   }
 }
 
+.date{
+  input{
+    text-indent: 8px;
+    border-radius: 8px;
+    border: solid 1.5px $border-color;
+    height: 40px;
+    margin: 0;
+    color: $gray;
+  }
+}
+
 
 
 @media (max-width: 1800px) {

@@ -15,6 +15,16 @@
   font-family: $button-font;
 }
 
+.red {
+  background-color: #DE4545;
+  border: none;
+  width: 130px;
+}
+
+.profile-edit{
+  width: 130px !important;
+}
+
 .small {
   border-radius: 8px;
   background-color: #FFD952;
@@ -43,13 +53,6 @@
   letter-spacing: 1vw;
 }
 
-.red {
-  background-color: #DE4545;
-  border: none;
-  //margin-left: 30px;
-  //padding: 3px 12px;
-  width: 25%;
-}
 
 .btn:hover {
   background-color: #CEB148;

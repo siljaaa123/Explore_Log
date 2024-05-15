@@ -1,4 +1,11 @@
-<%= render "shared/header" %>
+<div class="header">
+  <%= link_to journeys_path do %>
+    <%= image_tag "back.png", class: 'back-image', style: 'width: 22px; height: 22px;' %>
+  <% end %>
+  <%= link_to journeys_path, id: 'logo' do %>
+    <p class="logo">EXPLORELOG</p>
+  <% end %>
+</div>
     <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path(@journey.cover_photo.key) if @journey.cover_photo.attached? %>');" class="summer">
     </div>
     <div class="info-buttons">

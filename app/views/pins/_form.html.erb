@@ -16,7 +16,11 @@
                 wrapper_html: {data: {controller: "location-autocomplete",
                                       location_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
   <br>
-    <%= f.input :date %>
+    <div class="date">
+      <%= f.input :date,
+              as: :string,
+              input_html: { data: { controller: "datepicker" } } %>
+    </div>
   <br>
   <br>
     <%= f.submit "✔", class: "large", id: "submit-btn" %>
