@@ -1,7 +1,6 @@
 class TemplatesController < ApplicationController
   before_action :set_pin, only: %i[show]
 
-
   def index
     @templates = Template.all
   end
