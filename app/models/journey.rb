@@ -1,6 +1,6 @@
 class Journey < ApplicationRecord
   belongs_to :user
-  has_many :pins
+  has_many :pins, dependent: :destroy
   has_one_attached :cover_photo
   has_one_attached :video
 

@@ -1,12 +1,4 @@
 <div class="form-edit">
-  <div class="header">
-    <%= link_to journeys_path() do %>
-      <%= image_tag "back.png", class: 'back-image', style: 'width: 22px; height: 22px;' %>
-    <% end %>
-    <%= link_to journeys_path, id: 'logo' do %>
-      <p class="logo">EXPLORELOG</p>
-    <% end %>
-  </div>
   <%= simple_form_for(@journey) do |f| %>
     <%= f.input :name, input_html: {autocomplete: 'off'} %>
     <%= f.label :location %>
@@ -29,7 +21,7 @@
       </div>
     </div>
     <%= f.input :description %>
-    <%= f.label :cover_photo, class: "btn mt-3" id:"camera" do %>
+    <%= f.label :cover_photo, class: "btn large mt-3", id:"camera" do %>
       <i class="fa-solid fa-camera"></i>
       <%= f.file_field :cover_photo, class: "hidden-input" %>
     <% end %>

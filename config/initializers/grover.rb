@@ -1,6 +1,7 @@
 Grover.configure do |config|
   config.use_png_middleware = true
   config.options = {
+  format: 'A4',
   viewport: {
   width: 1024,
   height: 768

@@ -1,4 +1,11 @@
-<%= render "shared/header" %>
+<div class="header">
+  <%= link_to journeys_path do %>
+    <%= image_tag "back.png", class: 'back-image', style: 'width: 22px; height: 22px;' %>
+  <% end %>
+  <%= link_to journeys_path, id: 'logo' do %>
+    <p class="logo">EXPLORELOG</p>
+  <% end %>
+</div>
     <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path(@journey.cover_photo.key) if @journey.cover_photo.attached? %>');" class="summer">
     </div>
     <div class="info-buttons">
@@ -10,10 +17,9 @@
               <%= @journey.location %>
           </p>
           <p><i class="fa-regular fa-calendar"></i><%= @journey.start_date.strftime("%e %B") %> - <%= @journey.end_date.strftime("%e %B %Y") %></p>
-        <br>
         <div class="infobtn-container">
         <div class="buttons-edit" >
-        <%= link_to edit_journey_path(@journey), class: "edit btn small" do %>
+        <%= link_to edit_journey_path(@journey), class: "edit btn" do %>
           <i class="fa-regular fa-pen-to-square"></i>
         <% end %>
         <br>
@@ -31,19 +37,14 @@
       <p class="description">Description</p>
       <p class="description-gray"><%= @journey.description%></p>
     </div>
+    <br>
     <% if @journey.persisted? %>
       <div class="card-map mt-4" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('map.jpg');">
-        <%= link_to map_journey_path(@journey), class: "edit map-edit" do %>
+        <%= link_to map_journey_path(@journey), class: "edit map-edit", id: "mapshow" do %>
           <i class="fa-regular fa-pen-to-square"></i>
         <% end %>
       </div>
     <% end %>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
     <div class="action-buttons">
       <%# TODO: add link_to share and play when they are defined %>
       <%= link_to journey_videos_path(@journey), class: "btn bottom" do %>
