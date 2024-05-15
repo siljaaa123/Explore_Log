@@ -8,7 +8,8 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 require 'open-uri'
-
+puts 'Cleaning the database'
+Template.destroy_all
 puts 'Creating the templates'
 # user = User.create!(email: "hola@me.com", password: "password", username: "me")
 # journey = Journey.new(name: "Ibiza", location: "Spain", start_date: Date.new(2024, 5, 1), end_date: Date.new(2024, 5, 10), completed: false, description: "Bob & Brian honeymoon", user_id: user.id)
