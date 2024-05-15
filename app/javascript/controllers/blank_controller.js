@@ -169,7 +169,6 @@ export default class extends Controller {
   // }
 
   savePin() {
-    this.saveButtonTarget.classList.add('d-none');
     this.iconTarget.classList.add('d-none')
     const htmlContent = this.pageTarget.outerHTML;
     const pinId = this.element.dataset.pinId;
