@@ -1,45 +1,47 @@
 <%# <h2>Edit <%= resource_name.to_s.humanize %> </h2>
-  <div class="profile">
   <%= render "shared/header" %>
-  <div class="profile-pic-area mt-4">
-    <%= image_tag("homepage.png", class: "avatar-large") %>
+<div class="container">
+  <div class="profile">
+    <div class="profile-pic-area mt-4">
+      <%= image_tag("homepage.png", class: "avatar-large") %>
+    </div>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+
+      <%= f.error_notification %>
+
+        <div class="form-inputs mt-3">
+          <strong><%= f.input :email, required: true, autofocus: true, id: "email" %></strong>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+          <% end %>
+          <div class="mt-2">
+          <strong><%= f.input :username,
+                      hint: "leave it blank if you don't want to change it",
+                      required: false,
+                      input_html: { autocomplete: "new-username" } %></strong>
+          <strong><%= f.input :password,
+                      hint: "Leave it blank if you don't want to change it",
+                      required: false,
+                      input_html: { autocomplete: "new-password" }, id: "password" %></strong>
+          </div>
+          <div class="mt-2">
+          <strong><%= f.input :password_confirmation,
+                      required: false,
+                      input_html: { autocomplete: "new-password" } %></strong>
+          </div>
+          <div class="mt-2">
+          <strong><%= f.input :current_password,
+                      hint: "We need your current password to confirm your changes",
+                      required: true,
+                      input_html: { autocomplete: "current-password" } %></strong>
+          </div>
+        </div>
+        <div class="mt-3">
+          <br>
+        <div class="form-actions update">
+          <%= f.button :submit, "UPDATE", class: "btn large" %>
+        </div>
+        </div>
+    <% end %>
   </div>
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-
-    <%= f.error_notification %>
-
-      <div class="form-inputs mt-3">
-        <strong><%= f.input :email, required: true, autofocus: true, id: "email" %></strong>
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-        <% end %>
-        <div class="mt-2">
-        <strong><%= f.input :username,
-                    hint: "leave it blank if you don't want to change it",
-                    required: false,
-                    input_html: { autocomplete: "new-username" } %></strong>
-        <strong><%= f.input :password,
-                    hint: "Leave it blank if you don't want to change it",
-                    required: false,
-                    input_html: { autocomplete: "new-password" }, id: "password" %></strong>
-        </div>
-        <div class="mt-2">
-        <strong><%= f.input :password_confirmation,
-                    required: false,
-                    input_html: { autocomplete: "new-password" } %></strong>
-        </div>
-        <div class="mt-2">
-        <strong><%= f.input :current_password,
-                    hint: "We need your current password to confirm your changes",
-                    required: true,
-                    input_html: { autocomplete: "current-password" } %></strong>
-        </div>
-      </div>
-      <div class="mt-3">
-        <br>
-      <div class="form-actions update">
-        <%= f.button :submit, "UPDATE", class: "btn large" %>
-      </div>
-      </div>
-  <% end %>
 </div>
