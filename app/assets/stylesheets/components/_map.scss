@@ -45,3 +45,19 @@
   height: 844px !important;
 
 }
+
+.planepic {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("plane.webp");
+  background-size: cover;
+  background-repeat: none;
+}
+
+.mapboxgl-ctrl-geocoder--input {
+  border-radius: 8px;
+  border: solid 1.5px #b7b4b4;
+  height: 60px;
+  color: lightgray;
+  color: #1d1d1d;
+}
