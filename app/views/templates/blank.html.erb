@@ -1,6 +1,6 @@
 <%= render "shared/headertemplate" %>
-<div class="blank" data-templates-target="page" data-pin-id="<%= @pin.id %>" id="gesture-area">
-  <div data-controller="blank">
+<div class="blank" data-controller="blank" data-blank-target="page" data-pin-id="<%= @pin.id %>" id="gesture-area">
+  <div>
     <div class="sidebar-toggle" data-action="click->blank#toggleSideBar">
       <button class="btn side"><i class="fa-solid fa-bars"></i></button>
     </div>
@@ -11,8 +11,7 @@
       <br>
       <button class="btn side" data-action="click->blank#addPhotoInput"><i class="fa-solid fa-camera"></i></button>
       <br>
-
-      <button class="btn side"><input type="color" data-action="change->blank#onChangeColor" class=""></button>
+      <button class="btn side"><input type="color" data-action="change->blank#onChangeColor"></button>
       <br>
       <button class="btn side"><i class="fa-solid fa-rotate-left" data-action="click->blank#undoLastAction"></i></button>
       <br>

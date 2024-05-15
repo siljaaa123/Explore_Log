@@ -1,18 +1,22 @@
-
-  <div class="header">
-    <%= link_to :back do %>
-      <%= image_tag "back.png", class: 'back-image', style: 'width: 22px; height: 22px;' %>
-    <% end %>
-    <%= link_to journeys_path, id: 'logo' do %>
-      <p class="logo">EXPLORELOG</p>
-    <% end %>
-  </div>
-
-
-<% if @template_content.present? %>
-  <div class="template-content">
-    <%= raw @template_content %>
-  </div>
-<% else %>
-  <p>No template content available for this pin.</p>
-<% end %>
+<div class="header">
+  <%= link_to :back do %>
+    <%= image_tag "back.png", class: 'back-image', style: 'width: 22px; height: 22px;' %>
+  <% end %>
+  <%= link_to journeys_path, id: 'logo' do %>
+    <p class="logo">EXPLORELOG</p>
+  <% end %>
+</div>
+<div class="text-center mt-5">
+  <% if @template_content.present? %>
+    <div class="template-content">
+      <%= raw @template_content %>
+    </div>
+  <% else %>
+    <p>Nothing to see yet</p>
+    <%= link_to pin_templates_path(@pin) do %>
+        <button class="small-btn-pin">
+          <i class="fa-solid fa-location-dot"></i>
+        </button>
+      <% end %>
+  <% end %>
+</div>

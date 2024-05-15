@@ -61,15 +61,16 @@ export default class extends Controller {
     const photoInput = document.createElement("input");
     photoInput.setAttribute("type", "file");
     photoInput.setAttribute("accept", "image/*");
-    photoInput.setAttribute("data-action", "change->templates#handlePhotoChange");
-    photoInput.setAttribute("data-templates-target", "photoInput");
+    photoInput.setAttribute("data-action", "change->blank#handlePhotoChange");
+    photoInput.setAttribute("data-blank-target", "photoInput");
     photoInput.setAttribute("style", "opacity: 0");
     photoInput.setAttribute("name", "photo-input");
     photoInput.classList.add("photo-button")
 
     const photoLabel = document.createElement("label")
     photoLabel.setAttribute("for", "photo-input")
-    photoLabel.setAttribute("data-templates-target", "icon")
+    photoLabel.setAttribute("data-blank-target", "icon")
+    // photoLabel.setAttribute("data-action", "change->blank#handlePhotoChange");
     photoLabel.innerHTML = '<i class="fa-solid fa-camera"></i>'
 
     const uploadedPhoto = document.createElement("img");
@@ -80,7 +81,6 @@ export default class extends Controller {
     uploadedPhoto.classList.add("resizable");
     uploadedPhoto.style.display = "none";
     uploadedPhoto.dataset.blankTarget = "uploadedPhoto";
-    const scaleElement = uploadedPhoto
 
     this.canvasTarget.appendChild(photoInput);
     this.canvasTarget.appendChild(uploadedPhoto);
@@ -90,6 +90,8 @@ export default class extends Controller {
     this.addToHistory({
       undo: () => {
         photoInput.remove();
+        uploadedPhoto.remove();
+        photoLabel.remove();
       }
     });
 
@@ -146,10 +148,11 @@ export default class extends Controller {
 
   handlePhotoChange(event) {
     const file = event.target.files[0]
+    const uploadedPhoto = event.target.nextElementSibling
     const reader = new FileReader();
     reader.onload = (event) => {
-      this.uploadedPhotoTarget.src = event.target.result;
-      this.uploadedPhotoTarget.style.display = "inline";
+      uploadedPhoto.src = event.target.result;
+      uploadedPhoto.style.display = "inline";
     };
     reader.readAsDataURL(file);
     this.photoInputTarget.classList.add("d-none")
@@ -169,7 +172,9 @@ export default class extends Controller {
   // }
 
   savePin() {
-    this.iconTarget.classList.add('d-none')
+    if (this.iconTarget.present) {
+      this.iconTarget.classList.add('d-none')
+    }
     const htmlContent = this.pageTarget.outerHTML;
     const pinId = this.element.dataset.pinId;
     const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
