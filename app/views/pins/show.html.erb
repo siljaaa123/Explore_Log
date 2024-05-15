@@ -1,3 +1,12 @@
+<div class="header">
+  <%= link_to journeys_path do %>
+    <%= image_tag "back.png", class: 'back-image', style: 'width: 22px; height: 22px;' %>
+  <% end %>
+  <%= link_to journeys_path, id: 'logo' do %>
+    <p class="logo">EXPLORELOG</p>
+  <% end %>
+</div>
+
 <% if @template_content.present? %>
   <div class="template-content">
     <%= raw @template_content %>
