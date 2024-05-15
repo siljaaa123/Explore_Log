@@ -1,5 +1,5 @@
+<%= render "shared/headertemplate" %>
 <div class="floral-bg" data-controller='templates' data-templates-target="page" data-pin-id="<%= @pin.id %>" data-action="change->templates#handleChange">
-  <%= render "shared/headertemplate" %>
   <br>
   <br>
   <br>
@@ -22,7 +22,7 @@
     <div class="card-body card-floral" data-templates-target="textContainer">
       <textarea id="text-input" placeholder="Enter text here" data-templates-target="textInput" data-action="blur->templates#handleTextChange"></textarea>
     </div>
-  
+
       <button class="btn large" id="save" data-action="click->templates#savePin" data-action="click->templates#handleTextChange" data-templates-target="saveButton  "><i class="fa-solid fa-floppy-disk"></i></button>
   </div>
 </div>
