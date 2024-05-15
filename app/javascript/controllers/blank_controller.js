@@ -69,13 +69,14 @@ export default class extends Controller {
     photoInput.setAttribute("accept", "image/*");
     photoInput.setAttribute("data-action", "change->templates#handlePhotoChange");
     photoInput.setAttribute("data-templates-target", "photoInput");
-    // photoInput.setAttribute("style", "display: none");
+    photoInput.setAttribute("style", "opacity: 0");
+    photoInput.setAttribute("name", "photo-input");
     photoInput.classList.add("photo-button")
 
-    // const photoLabel = document.createElement("label")
-    // photoLabel.setAttribute("for", "photo-input")
-    // photoLabel.setAttribute("data-templates-target", "icon")
-    // photoLabel.innerHTML = '<i class="fa-solid fa-camera"></i>'
+    const photoLabel = document.createElement("label")
+    photoLabel.setAttribute("for", "photo-input")
+    photoLabel.setAttribute("data-templates-target", "icon")
+    photoLabel.innerHTML = '<i class="fa-solid fa-camera"></i>'
 
     const uploadedPhoto = document.createElement("img");
     uploadedPhoto.setAttribute("id", "uploaded-photo");
@@ -90,7 +91,7 @@ export default class extends Controller {
 
     this.canvasTarget.appendChild(photoInput);
     this.canvasTarget.appendChild(uploadedPhoto);
-    // this.canvasTarget.appendChild(photoLabel)
+    this.canvasTarget.appendChild(photoLabel)
 
     this.addToHistory({
       undo: () => {
