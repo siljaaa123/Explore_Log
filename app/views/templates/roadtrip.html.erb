@@ -12,7 +12,7 @@
     <div class="frame-roadtrip text-center" data-templates-target="frame">
       <img id="uploaded-photo" src="#" alt="Uploaded Photo" style="display: none;" data-templates-target="uploadedPhoto">
       <input type="file" id="photo-input" accept="image/*" data-templates-target="photoInput" data-action="change->templates#handlePhotoChange" style="display: none;">
-      <label for="photo-input">
+      <label for="photo-input" data-templates-target="icon">
         <i class="fa-solid fa-camera"></i>
       </label>
     </div>
@@ -20,9 +20,8 @@
     <br>
     <br>
     <div class="card-body card-roadtrip" data-templates-target="textContainer">
-      <textarea id="text-input" placeholder="Enter text here" data-templates-target="textInput"></textarea>
+      <textarea id="text-input" placeholder="Enter text here" data-templates-target="textInput" data-action="blur->templates#handleTextChange"></textarea>
     </div>
-    <button data-templates-target="button" data-action="click->templates#handleTextChange">Add</button>
     <br>
     <br>
     <br>
