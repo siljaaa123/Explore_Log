@@ -27,7 +27,7 @@
   height: 40px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   position: absolute;
-  bottom: 90px;
+  bottom: 50px;
   left: 27%;
   z-index: 9999;
 }
@@ -41,8 +41,8 @@
   z-index: 9999;
 }
 .mapboxgl-canvas {
-  width: 100vw !important;
-  height: 100vh !important;
+  width: 390px !important;
+  height: 844px !important;
 
 }
 

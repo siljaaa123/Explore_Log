@@ -1,20 +1,19 @@
-<div class="container-header">
-  <div class="header-template">
-    <%= link_to :back,
-      data: {
-          controller: "alert",
-          action: "click->alert#initSweetalert",
-          turbo: false
-        } do %>
-      <%= image_tag "chevron-circle-left.svg", class: 'back-template' %>
-    <% end %>
-    <%= link_to journeys_path, id: 'logo-template',
-      data: {
-          controller: "alert",
-          action: "click->alert#initSweetalert",
-          turbo: false
-        } do %>
-      <p class="logo-template">EXPLORELOG</p>
-    <% end %>
-  </div>
+
+<div class="header">
+  <%= link_to :back,
+    data: {
+        controller: "alert",
+        action: "click->alert#initSweetalert",
+        turbo: false
+      } do %>
+    <%= image_tag "chevron-circle-left.svg", class: 'back-image' %>
+  <% end %>
+  <%= link_to journeys_path, id: 'logo',
+    data: {
+        controller: "alert",
+        action: "click->alert#initSweetalert",
+        turbo: false
+      } do %>
+    <p class="logo">EXPLORELOG</p>
+  <% end %>
 </div>

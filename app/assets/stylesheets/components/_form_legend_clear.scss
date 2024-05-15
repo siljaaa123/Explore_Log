@@ -16,8 +16,8 @@ legend ~ div.form-check:first-of-type {
 
 #submit-btn {
   position: fixed;
-  bottom: 40px;
-  left: 50%;
+  bottom: 70px;
+  left: 47%;
   transform: translateX(-50%);
 }
 .required{
@@ -54,7 +54,7 @@ legend ~ div.form-check:first-of-type {
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 320px;
+  width: 370px;
 
 
   .start{
@@ -64,7 +64,7 @@ legend ~ div.form-check:first-of-type {
     margin: 8px 4px 8px 0;
 
     input{
-      width:156px;
+      width:181px;
       text-indent: 8px;
       border-radius: 8px;
       border: solid 1.5px $border-color;
@@ -81,7 +81,7 @@ legend ~ div.form-check:first-of-type {
     margin: 18px 0px 8px 4px;
 
     input{
-      width:156px;
+      width:181px;
       text-indent: 8px;
       border-radius: 8px;
       border: solid 1.5px $border-color;
@@ -111,6 +111,6 @@ legend ~ div.form-check:first-of-type {
 
 @media (max-width: 1800px) {
   .form-edit {
-    width: 320px;
+    width: 370px;
   }
 }
