@@ -4,15 +4,23 @@
   <title>The page you were looking for doesn't exist (404)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
+  @import url('https://fonts.googleapis.com/css2?family=Anton&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
   .error-page {
-    background-color: #EFEFEF;
+    background-color: white;
     color: #2E2F30;
     text-align: center;
     font-family: arial, sans-serif;
     margin: 1rem;
   }
+  .error-page h1{
+    font-family: "Anton", "sans-serif";
+  }
 
   .error-page div.dialog {
+    background-image: url('https://media.istockphoto.com/id/1315152008/photo/passport-airplane-tickets-yellow-suitcase-sun-hat-and-protective-face-mask-on-yellow.webp?b=1&s=170667a&w=0&k=20&c=7ZXNxfmh71Z7nJXKWFT4BY-Hp1XZQpgB_LipRf1y_L4=');
+    background-repeat: none;
+    background-size: cover;
     padding: 20px;
     border: 1px solid lightgray;
     border-radius: 8px;
@@ -52,7 +60,6 @@
   }
 
   .error-page h1 {
-    font-size: 100%;
     color: black;
     line-height: 1.5em;
   }
@@ -78,6 +85,7 @@
   <!-- This file lives in public/404.html -->
   <br>
   <br>
+  <h1>EXPLORELOG</h1>
   <br>
   <br>
   <br>
@@ -88,7 +96,7 @@
     <div>
       <h1>Oops</h1>
       <p>We've searched your page but we haven't found it.</p>
-      <button><a href="root">GO HOME</a></button>
+      <button><a href="/#home">GO HOME</a></button>
     </div>
   </div>
 </body>
