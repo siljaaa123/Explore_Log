@@ -7,6 +7,11 @@
   <% end %>
 </div>
     <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path(@journey.cover_photo.key) if @journey.cover_photo.attached? %>');" class="summer">
+      <div style="position: relative;">
+        <%= link_to journey_path(@journey), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
+          <button class ="btnthree" style="position: absolute; top: 1px; left: 1px;"><i class="fa-solid fa-trash"></i></button>
+        <% end %>
+      </div>
     </div>
     <div class="info-buttons">
       <div class="journey-info">
@@ -17,19 +22,13 @@
               <%= @journey.location %>
           </p>
           <p><i class="fa-regular fa-calendar"></i><%= @journey.start_date.strftime("%e %B") %> - <%= @journey.end_date.strftime("%e %B %Y") %></p>
-        <div class="infobtn-container">
-        <div class="buttons-edit" >
-        <%= link_to edit_journey_path(@journey), class: "edit btn" do %>
+
+        <%= link_to edit_journey_path(@journey), class: "btntwo" do %>
           <i class="fa-regular fa-pen-to-square"></i>
         <% end %>
         <br>
-        <%= link_to journey_path(@journey), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
-          <button class ="btn red"><i class="fa-solid fa-trash"></i></button>
-        <% end %>
-      </div>
       </div>
         </div>
-      </div>
     </div>
     <br>
   <div class="hate">
