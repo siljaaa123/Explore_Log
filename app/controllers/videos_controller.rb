@@ -1,11 +1,11 @@
 class VideosController < ApplicationController
+  before_action :set_journey
+
   def index
-    @journey = Journey.find(params[:journey_id])
     generate_frames
   end
 
   def generate_frames
-    @journey = Journey.find(params[:journey_id])
     @animation_frames = @journey.pins.map do |pin|
       template = Grover.new("http://localhost:3000/pins/#{pin.id}", format: 'A4')
       template.to_png
@@ -29,6 +29,12 @@ class VideosController < ApplicationController
   ensure
     # Ensure temporary files are cleaned up
     temp_files.each { |file| File.delete(file) if File.exist?(file) }
+  end
+
+  private
+
+  def set_journey
+    @journey = Journey.find(params[:journey_id])
   end
 end
 
