@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "heroku-postbuild": "mkdir ./.cache && mv /app/.cache/puppeteer ./.cache"
+  },
   "dependencies": {
     "@rails/actiontext": "^7.1.3-2",
     "interactjs": "^1.10.27",
