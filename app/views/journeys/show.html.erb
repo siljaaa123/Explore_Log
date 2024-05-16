@@ -69,23 +69,18 @@
     </div>
   </div>
 
-<script>
-const copyBtn = document.getElementById('copyURL');
-const baseURL = window.location.origin;
+  <script>
+  const copyBtn = document.getElementById('copyURL');
+  const baseURL = window.location.origin;
 
 
-copyBtn.addEventListener('click', () => {
-  const videoPath = copyBtn.dataset.videoPath;
-  if (videoPath) {
-    const fullURL = baseURL + videoPath;
-    navigator.clipboard.writeText(fullURL).then(() => {
-      alert('Video link copied successfully!');
-    }).catch(() => {
-      alert('Error copying video link to clipboard');
-    });
-} else {
-    alert('Video link is not available');
-}
-});
-</script>
+  copyBtn.addEventListener('click', () => {
+    const videoPath = copyBtn.dataset.videoPath;
+    if (videoPath) {
+      const fullURL = baseURL + videoPath;
+  } else {
+      alert('Video link is not available');
+  }
+  });
+  </script>
 </div>
