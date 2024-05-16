@@ -11,20 +11,20 @@
 <div class="blank" data-controller="blank" data-blank-target="page" data-pin-id="<%= @pin.id %>" id="gesture-area">
   <div>
     <div class="sidebar-toggle" data-action="click->blank#toggleSideBar">
-      <button class="btn side"><i class="fa-solid fa-bars"></i></button>
+      <button class="menu"><i class="fa-solid fa-bars"></i></button>
     </div>
     <div class="sidebar d-none" data-blank-target="sidebar">
       <br>
       <br>
-      <button class="btn side" data-action="click->blank#addTextInput"><i class="fa-solid fa-font"></i></i></button>
+      <button class="side" data-action="click->blank#addTextInput"><i class="fa-solid fa-font"></i></i></button>
       <br>
-      <button class="btn side" data-action="click->blank#addPhotoInput"><i class="fa-solid fa-camera"></i></button>
+      <button class="side" data-action="click->blank#addPhotoInput"><i class="fa-solid fa-camera"></i></button>
       <br>
-      <button class="btn side"><input type="color" data-action="change->blank#onChangeColor"></button>
+      <button class="side"><input type="color" data-action="change->blank#onChangeColor"></button>
       <br>
-      <button class="btn side"><i class="fa-solid fa-rotate-left" data-action="click->blank#undoLastAction"></i></button>
+      <button class="side"><i class="fa-solid fa-rotate-left" data-action="click->blank#undoLastAction"></i></button>
       <br>
-      <button class="btn side" data-action="click->blank#savePin"><i class="fa-regular fa-circle-check"></i></button>
+      <button class="side" data-action="click->blank#savePin"><i class="fa-regular fa-circle-check"></i></button>
     </div>
     <div class="canvas" data-blank-target="canvas">
     </div>
