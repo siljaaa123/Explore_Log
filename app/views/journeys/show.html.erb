@@ -46,7 +46,7 @@
       <p class="description-gray"><%= @journey.description%></p>
     </div>
     <% if @journey.persisted? %>
-      <div class="card-map mt-4" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('map.jpg');">
+      <div class="card-map mt-4" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('map.jpg') %>);">
         <%= link_to map_journey_path(@journey), class: "edit map-edit", id: "mapshow" do %>
           <i class="fa-regular fa-pen-to-square"></i>
         <% end %>
