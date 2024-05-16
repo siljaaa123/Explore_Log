@@ -9,7 +9,13 @@
 <div class="container">
   <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path(@journey.cover_photo.key) if @journey.cover_photo.attached? %>');" class="summer">
     <div style="position: relative; justify-content: flex-start;">
-      <%= link_to journey_path(@journey), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btnthree" do %>
+      <%= link_to journey_path(@journey), data: {
+        controller: "alert",
+        action: "click->alert#deleteSweetalert",
+        turbo: false,
+        turbo_method: :delete,
+        turbo_confirm: 'Are you sure?'
+        }, class: "btnthree" do %>
         <i class="fa-regular fa-circle-xmark"></i>
       <% end %>
        <%= link_to edit_journey_path(@journey), class: "btntwo" do %>
@@ -32,16 +38,6 @@
 
     </div>
   </div>
-    <div class="gray-info">
-      <h1><%= @journey.name %></h1>
-      <p>
-        <i class="fa-solid fa-location-dot"></i>
-        <%= @journey.location %>
-      </p>
-      <p>
-        <i class="fa-regular fa-calendar"></i>
-        <%= @journey.start_date.strftime("%e %B") %> - <%= @journey.end_date.strftime("%e %B %Y") %>
-      </p>
       <br>
   </div>
   <div class="hate">
@@ -61,7 +57,13 @@
       <%= link_to journey_videos_path(@journey), class: "btn bottom" do %>
         <i class="fa-regular fa-circle-play"></i>
       <% end %>
-        <%= link_to "#", class: "btn bottom", id: "copyURL",  data: { video_path: journey_videos_path(@journey) } do %>
+        <%= link_to "#", class: "btn bottom", id: "copyURL",  data: {
+          video_path: journey_videos_path(@journey),
+          controller: "alert",
+          action: "click->alert#copySweetalert",
+          turbo: "false",
+          confirm: 'Video link copied successfully!'
+           } do %>
         <i class="fa-solid fa-share-nodes"></i>
       <% end %>
     </div>
