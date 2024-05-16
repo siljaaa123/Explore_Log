@@ -7,9 +7,7 @@ export default class extends Controller {
   }
 
   initSweetalert(event) {
-    console.log("SweetAlert triggered");
     event.preventDefault();
-
     Swal.fire({
       text: 'Are you sure?',
       icon: 'warning',
@@ -39,9 +37,7 @@ export default class extends Controller {
   }
 
   deleteSweetalert(event) {
-    console.log("SweetAlert triggered");
     event.preventDefault();
-
     Swal.fire({
       text: 'Are you sure?',
       icon: 'warning',
@@ -85,9 +81,7 @@ export default class extends Controller {
   }
 
   copySweetalert(event) {
-    console.log("SweetAlert triggered");
     event.preventDefault();
-
     Swal.fire({
       title: "COOL!",
       text: "You can share your video now!",

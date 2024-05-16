@@ -82,7 +82,6 @@ export default class extends Controller {
       .then(response => response.json())
       .then(data => {
         const routes = data.routes;
-        console.log(data.routes)
         routes.forEach((route, index) => {
           const routeGeometry = route.geometry;
           this.map.on("load", () => {
