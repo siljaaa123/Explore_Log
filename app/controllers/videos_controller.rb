@@ -12,12 +12,12 @@ class VideosController < ApplicationController
 
   def generate_frames
     @animation_frames = @journey.pins.map do |pin|
-      @template = Grover.new("https://www.explorelog.me/pins/#{pin.id}", format: 'A4')
+      @template = Grover.new("http://localhost:3000/pins/#{pin.id}", format: 'A4')
       @template.to_png
     end
     # Directory where the image files will be saved
-    @map = Grover.new("https://www.explorelog.me/journeys/#{@journey.id}/map", format: 'A4')
-    @animation_frames << @map.to_png
+    # @map = Grover.new("https://www.explorelog.me/journeys/#{@journey.id}/map", format: 'A4')
+    # @animation_frames << @map.to_png
     if @animation_frames.any?
       # Create temporary files and perform further processing
       temp_dir = Rails.root.join('tmp', 'images', 'test')
