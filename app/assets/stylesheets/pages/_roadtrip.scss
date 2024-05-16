@@ -1,6 +1,7 @@
 .card-roadtrip {
   font-size: 40px;
   font-family: $template-font;
+  color: white;
 }
 .roadtrip-bg {
   width: 100vw;
@@ -18,7 +19,6 @@
   }
   textarea, input, button {
     border-radius: 8px;
-    color: rgb(255, 255, 255);
   }
   textarea {
     width: 80%;
