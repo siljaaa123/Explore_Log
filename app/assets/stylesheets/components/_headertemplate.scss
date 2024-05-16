@@ -3,28 +3,26 @@
   position: relative;
   width: 100%;
 }
-
 .header-template {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // padding: 10px 0;
-  // position: absolute;
-
+  padding: 5px 0;
+  margin: 0 10px;
+  width: 370px;
+  position: fixed;
+  top: 0;
   p{
     margin: 12px 0 12px 0;
   }
 }
-
 .logo-template {
   font-family: anton;
   color: $gray;
   font-size: 20px;
-
   &:hover{
     color: $yellow;
   }
-
 }
 
 #logo-template{
@@ -40,6 +38,6 @@
 
 @media (max-width: 1800px) {
   .container {
-    width: 320px;
+    width: 370px;
   }
 }

@@ -70,7 +70,6 @@ export default class extends Controller {
     const photoLabel = document.createElement("label")
     photoLabel.setAttribute("for", "photo-input")
     photoLabel.setAttribute("data-blank-target", "icon")
-    // photoLabel.setAttribute("data-action", "change->blank#handlePhotoChange");
     photoLabel.innerHTML = '<i class="fa-solid fa-camera"></i>'
 
     const uploadedPhoto = document.createElement("img");
@@ -137,9 +136,15 @@ export default class extends Controller {
 
             const initialWidth = event.deltaRect.right - event.deltaRect.left
             const adjWidth = event.rect.width
-            const widthDifference = (adjWidth - 100)
+            let widthDifference = (initialWidth / adjWidth) * 1000
             const fontSize = parseInt(getComputedStyle(element.querySelector("p")).getPropertyValue('font-size'), 10) + widthDifference;
             element.querySelector("p").style.fontSize = fontSize + 'px';
+            // console.log(event.target.nextSibling)
+            // const parentElement = event.target.offsetWidth;
+            // const targetElement = document.getElementById("targetElementId");
+            // const parentWidth = parentElement.offsetWidth;
+            // const fontSize = parentWidth * 0.1; // Adjust this factor as needed
+            // targetElement.style.fontSize = fontSize + "px";
           },
 
         }
@@ -159,17 +164,18 @@ export default class extends Controller {
   }
 
   handleTextChange() {
-    this.userText = this.textInputTarget.value;
-    const textContainer = this.textInputTarget.parentNode
-    this.textInputTarget.remove()
-    textContainer.insertAdjacentHTML("beforeend", "<p data-action='click->blank#changeText' data-blank-target='uploadedText'>" + this.userText + "</p>")
+    const text = event.target.value
+    const textContainer = event.target.parentNode
+    event.target.classList.add('d-none')
+    textContainer.insertAdjacentHTML("beforeend", `<p data-action='click->blank#changeText' data-blank-target='uploadedText'>` + text + `</p>`)
   }
 
-  // changeText(event) {
-  //   this.textInputTarget.classList.remove("d-none")
-  //   this.textInputTarget.value = event.currentTarget.innerText
-  //   event.currentTarget.remove()
-  // }
+  changeText(event) {
+    console.log();
+    event.target.previousElementSibling.classList.remove("d-none")
+    event.target.value = event.currentTarget.innerText
+    event.currentTarget.remove()
+  }
 
   savePin() {
     if (this.iconTarget.present) {

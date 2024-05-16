@@ -1,6 +1,6 @@
+<div class="roadtrip-bg">
 <%= render "shared/headertemplate" %>
-<div class="container">
-  <div class="roadtrip-bg" data-controller='templates' data-templates-target="page" data-pin-id="<%= @pin.id %>" data-action="change->templates#handleChange">
+  <div data-controller='templates' data-templates-target="page" data-pin-id="<%= @pin.id %>" data-action="change->templates#handleChange">
     <br>
     <br>
     <br>
@@ -23,7 +23,6 @@
       <div class="card-body card-roadtrip" data-templates-target="textContainer">
         <textarea id="text-input" placeholder="Enter text here" data-templates-target="textInput" data-action="blur->templates#handleTextChange"></textarea>
       </div>
-
         <button class="btn large" id="save" data-templates-target="saveButton" data-action="click->templates#savePin" data-action="click->templates#handleTextChange"><i class="fa-solid fa-floppy-disk"></i></button>
     </div>
   </div>
