@@ -14,7 +14,11 @@ h1 {
 
 
 .btntwo
-{ border-radius:6px;
+{
+  position: absolute;
+  right: -175px;
+  top: -143px;
+  border-radius:6px;
   color: black;
   border: none;
   //margin-left: 30px;
@@ -24,6 +28,9 @@ h1 {
 
 }
 .btnthree {
+  position: absolute;
+  right: 155px;
+  top: -143px;
   border-radius:6px;
   color: black;
   border: none;
@@ -31,10 +38,6 @@ h1 {
   //margin-right: 30px;
   // box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   font-family: $button-font;
-  display: flex;
-  justify-content: flex-start;
-
-
 }
 
 .gray-info {
