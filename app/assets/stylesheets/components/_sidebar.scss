@@ -3,6 +3,7 @@
   flex-direction: column;
   width: 20vw;
   height: 100vh;
+  z-index: 49;
   background-color: #FFD952;
   position: absolute;
   right: 0;
@@ -36,12 +37,9 @@
 .blank {
   width: 100vw;
   height: 100vh;
-
   .menu{
     width: 80px;
-
   }
-
   button {
     background-color: #FFD952;
     border: none;
@@ -72,6 +70,7 @@
     width: 100vw;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
   }
@@ -81,14 +80,6 @@
     justify-content: center;
     height: 100vh;
   }
-//   .resizable-text {
-//     min-height: 30px; /* Set minimum height */
-//     border: 1px solid #ccc; /* Add border for better visibility */
-//     padding: 5px; /* Add padding for better appearance */
-//     resize: both; /* Allow resizing horizontally and vertically */
-//     overflow: auto; /* Enable scrolling if the content exceeds the container */
-// }
-
 }
 
 .photo-button{

@@ -137,7 +137,7 @@ export default class extends Controller {
             const parentElement = event.target;
             const targetElement = event.target.querySelector("p");
             const parentWidth = parentElement.offsetWidth;
-            const fontSize = parentWidth * 0.3;
+            const fontSize = parentWidth * 0.1;
             targetElement.style.fontSize = fontSize + "px";
           },
         }

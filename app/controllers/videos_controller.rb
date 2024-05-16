@@ -3,11 +3,11 @@ class VideosController < ApplicationController
   before_action :set_journey
 
   def index
-    @movie = @journey.video
-    unless @movie.attached?
-      generate_frames
-      @movie = @journey.video
-    end
+    # @movie = @journey.video
+    # unless @movie.attached?
+    #   generate_frames
+    #   @movie = @journey.video
+    # end
   end
 
   def generate_frames
