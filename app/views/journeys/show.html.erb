@@ -12,50 +12,45 @@
       <%= link_to journey_path(@journey), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
         <button class ="btnthree" style="position: absolute; top: 1px; left: 1px;"><i class="fa-solid fa-trash"></i></button>
       <% end %>
-    </div>
-  </div>
-  <div class="info-buttons">
-    <div class="journey-info">
-      <div class="gray-info">
-        <h1><%= @journey.name %></h1>
-        <p>
-            <i class="fa-solid fa-location-dot"></i>
-            <%= @journey.location %>
-        </p>
-        <p><i class="fa-regular fa-calendar"></i><%= @journey.start_date.strftime("%e %B") %> - <%= @journey.end_date.strftime("%e %B %Y") %></p>
-
       <%= link_to edit_journey_path(@journey), class: "btntwo" do %>
         <i class="fa-regular fa-pen-to-square"></i>
       <% end %>
-      <br>
     </div>
+  </div>
+    <div class="gray-info">
+      <h1><%= @journey.name %></h1>
+      <p>
+        <i class="fa-solid fa-location-dot"></i>
+        <%= @journey.location %>
+      </p>
+      <p>
+        <i class="fa-regular fa-calendar"></i>
+        <%= @journey.start_date.strftime("%e %B") %> - <%= @journey.end_date.strftime("%e %B %Y") %>
+      </p>
+      <br>
+  </div>
+  <div class="hate">
+    <div class="journey-description">
+      <p class="description">Description</p>
+      <p class="description-gray"><%= @journey.description%></p>
+    </div>
+    <% if @journey.persisted? %>
+      <div class="card-map mt-4" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('map.jpg');">
+        <%= link_to map_journey_path(@journey), class: "edit map-edit", id: "mapshow" do %>
+          <i class="fa-regular fa-pen-to-square"></i>
+        <% end %>
       </div>
-  </div>
-  <br>
-<div class="hate">
-  <div class="journey-description">
-    <p class="description">Description</p>
-    <p class="description-gray"><%= @journey.description%></p>
-  </div>
-  <br>
-  <% if @journey.persisted? %>
-    <div class="card-map mt-4" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('map.jpg');">
-      <%= link_to map_journey_path(@journey), class: "edit map-edit", id: "mapshow" do %>
-        <i class="fa-regular fa-pen-to-square"></i>
+    <% end %>
+    <div class="action-buttons">
+      <%# TODO: add link_to share and play when they are defined %>
+      <%= link_to journey_videos_path(@journey), class: "btn bottom" do %>
+        <i class="fa-regular fa-circle-play"></i>
+      <% end %>
+        <%= link_to "#", class: "btn bottom", id: "copyURL",  data: { video_path: journey_videos_path(@journey) } do %>
+        <i class="fa-solid fa-share-nodes"></i>
       <% end %>
     </div>
-  <% end %>
-  <div class="action-buttons">
-    <%# TODO: add link_to share and play when they are defined %>
-    <%= link_to journey_videos_path(@journey), class: "btn bottom" do %>
-      <i class="fa-regular fa-circle-play"></i>
-    <% end %>
-      <%= link_to "#", class: "btn bottom", id: "copyURL",  data: { video_path: journey_videos_path(@journey) } do %>
-      <i class="fa-solid fa-share-nodes"></i>
-    <% end %>
   </div>
-</div>
-
 
 <script>
 const copyBtn = document.getElementById('copyURL');

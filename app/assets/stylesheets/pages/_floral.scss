@@ -8,6 +8,10 @@
   background-image: url("floral.webp");
   background-size: cover;
   background-repeat: none;
+  background-position: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
   button {
     background-color: #FFD952;
     border: none;
@@ -28,7 +32,7 @@
 .floral {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 #uploaded-photo {
@@ -55,9 +59,11 @@
   left: 62%;
   top: 42%;
 }
-
-
 #save{
   position: absolute;
-  bottom: 80px;
+  bottom: 30px;
+}
+.test {
+  width: 70px;
+  height: 70px;
 }
