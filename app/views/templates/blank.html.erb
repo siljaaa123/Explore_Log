@@ -1,4 +1,13 @@
-<%= render "shared/headertemplate" %>
+<div class="header-template">
+  <%= link_to :back,
+    data: {
+        controller: "alert",
+        action: "click->alert#initSweetalert",
+        turbo: false
+      } do %>
+    <%= image_tag "chevron-circle-left.svg", class: 'back-image' %>
+  <% end %>
+</div>
 <div class="blank" data-controller="blank" data-blank-target="page" data-pin-id="<%= @pin.id %>" id="gesture-area">
   <div>
     <div class="sidebar-toggle" data-action="click->blank#toggleSideBar">

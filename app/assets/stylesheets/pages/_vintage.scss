@@ -7,6 +7,9 @@
   height: 100vh;
   background-image: url("vintage.jpeg");
   background-size: cover;
+  position: fixed;
+  left: 0;
+  bottom: 0;
   button {
     background-color: #FFD952;
     border: none;
