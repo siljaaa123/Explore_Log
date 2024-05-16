@@ -11,8 +11,7 @@ class JourneysController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @journey = Journey.new
@@ -28,8 +27,7 @@ class JourneysController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @journey.update(journey_params)
@@ -47,7 +45,6 @@ class JourneysController < ApplicationController
   def map
     @pins = @journey.pins
     if @pins.any?
-      # @pin = Pin.find(params[:pin_id])
       @markers = @pins.geocoded.map do |pin|
         {
           lat: pin.latitude,
@@ -57,10 +54,7 @@ class JourneysController < ApplicationController
         }
       end
     else
-      @journey_location = {
-        lat: @journey.latitude,
-        lng: @journey.longitude
-      }
+      @journey_location = { lat: @journey.latitude, lng: @journey.longitude }
     end
   end
 

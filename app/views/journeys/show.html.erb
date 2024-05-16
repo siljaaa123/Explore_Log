@@ -21,7 +21,6 @@
        <%= link_to edit_journey_path(@journey), class: "btntwo" do %>
         <i class="fa-regular fa-pen-to-square"></i>
       <% end %>
-
     </div>
   </div>
   <div class="info-buttons">
@@ -33,9 +32,6 @@
             <%= @journey.location %>
         </p>
         <p><i class="fa-regular fa-calendar"></i><%= @journey.start_date.strftime("%e %B") %> - <%= @journey.end_date.strftime("%e %B %Y") %></p>
-
-
-
     </div>
   </div>
       <br>
@@ -53,7 +49,6 @@
       </div>
     <% end %>
     <div class="action-buttons">
-      <%# TODO: add link_to share and play when they are defined %>
       <%= link_to journey_videos_path(@journey), class: "btn bottom" do %>
         <i class="fa-regular fa-circle-play"></i>
       <% end %>
@@ -72,7 +67,6 @@
   <script>
   const copyBtn = document.getElementById('copyURL');
   const baseURL = window.location.origin;
-
 
   copyBtn.addEventListener('click', () => {
     const videoPath = copyBtn.dataset.videoPath;
