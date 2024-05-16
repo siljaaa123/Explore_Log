@@ -91,7 +91,8 @@ export default class extends Controller {
     Swal.fire({
       title: "COOL!",
       text: "You can share your video now!",
-      icon: "success"
+      icon: "success",
+      confirmButtonColor: "#FFD952",
     });
   }
 }
