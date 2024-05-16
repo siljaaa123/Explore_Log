@@ -134,17 +134,16 @@ export default class extends Controller {
             })
             Object.assign(event.target.dataset, { x, y })
 
-            const initialWidth = event.deltaRect.right - event.deltaRect.left
-            const adjWidth = event.rect.width
-            let widthDifference = (initialWidth / adjWidth) * 1000
-            const fontSize = parseInt(getComputedStyle(element.querySelector("p")).getPropertyValue('font-size'), 10) + widthDifference;
-            element.querySelector("p").style.fontSize = fontSize + 'px';
-            // console.log(event.target.nextSibling)
-            // const parentElement = event.target.offsetWidth;
-            // const targetElement = document.getElementById("targetElementId");
-            // const parentWidth = parentElement.offsetWidth;
-            // const fontSize = parentWidth * 0.1; // Adjust this factor as needed
-            // targetElement.style.fontSize = fontSize + "px";
+            // const initialWidth = event.deltaRect.right - event.deltaRect.left
+            // const adjWidth = event.rect.width
+            // let widthDifference = (initialWidth / adjWidth) * 1000
+            // const fontSize = parseInt(getComputedStyle(element.querySelector("p")).getPropertyValue('font-size'), 10) + widthDifference;
+            // element.querySelector("p").style.fontSize = fontSize + 'px';
+            const parentElement = event.target;
+            const targetElement = event.target.querySelector("p");
+            const parentWidth = parentElement.offsetWidth;
+            const fontSize = parentWidth * 0.3;
+            targetElement.style.fontSize = fontSize + "px";
           },
 
         }
