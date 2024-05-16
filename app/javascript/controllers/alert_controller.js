@@ -38,7 +38,7 @@ export default class extends Controller {
     })
   }
 
-r  deleteSweetalert(event) {
+  deleteSweetalert(event) {
     console.log("SweetAlert triggered");
     event.preventDefault();
 
