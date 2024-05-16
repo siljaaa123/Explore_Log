@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "preinstall": "npm install puppeteer-core", "postinstall": "npx puppeteer browsers install chrome",
     "heroku-postbuild": "mkdir ./.cache && mv /app/.cache/puppeteer ./.cache"
   },
   "dependencies": {
